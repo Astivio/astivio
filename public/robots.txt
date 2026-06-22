@@ -56,8 +56,8 @@ Allow: /
 
 # ── FICHIERS DE DÉCOUVERTE ────────────────────────────────────────────
 
-# Sitemap XML pour la découverte de toutes les pages
-Sitemap: https://astivio.fr/sitemap-index.xml
+# Sitemap XML (sera activé après déploiement)
+# Sitemap: https://astivio.fr/sitemap-index.xml
 
 # Fichier de guidage LLM (standard émergent llms.txt)
 # Ce fichier explique aux IA l'objet du site et ses pages clés
