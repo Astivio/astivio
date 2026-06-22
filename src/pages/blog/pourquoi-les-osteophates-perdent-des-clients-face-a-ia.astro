@@ -1,0 +1,319 @@
+---
+// Article 1 — Pourquoi les ostéopathes perdent des patients à cause de l'IA
+// AEO/GEO : BlogPosting schema, TL;DR, FAQ finale, phrases auto-suffisantes,
+// signaux E-E-A-T (auteur, date publication/mise à jour, sources citées)
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBlogPostingSchema, getBreadcrumbSchema } from '../../data/schema';
+import type { FAQItem } from '../../data/faq';
+
+const postUrl     = 'https://astivio.fr/blog/pourquoi-les-osteophates-perdent-des-clients-face-a-ia/';
+const datePubl    = '2025-01-15';
+const dateMaj     = '2025-02-01';
+
+const schemas = [
+  getBlogPostingSchema({
+    title:          'Pourquoi les ostéopathes perdent des patients à cause de l\'IA en 2026',
+    description:    'Analyse complète du basculement des recherches vers les moteurs IA et de son impact sur les cabinets d\'ostéopathie. Données chiffrées et solutions.',
+    url:            postUrl,
+    datePublished:  datePubl,
+    dateModified:   dateMaj,
+  }),
+  getBreadcrumbSchema([
+    { name: 'Accueil', url: 'https://astivio.fr/' },
+    { name: 'Blog',    url: 'https://astivio.fr/blog/' },
+    { name: 'Pourquoi les ostéopathes perdent des patients à cause de l\'IA', url: postUrl },
+  ]),
+];
+
+const faqArticle: FAQItem[] = [
+  {
+    question: 'Pourquoi un ostéopathe bien référencé sur Google peut-il être absent des réponses ChatGPT ?',
+    answer:   'Un bon référencement Google et une bonne visibilité dans les LLM sont deux choses distinctes. Google classe des pages web pour les présenter dans une liste de liens. Les LLM comme ChatGPT génèrent une réponse synthétisée à partir de leur entraînement, qui intègre des signaux différents : volume de mentions, qualité des données structurées, signaux E-E-A-T, citations tierces. Un ostéopathe peut être en position 1 sur Google et totalement absent de ChatGPT.',
+  },
+  {
+    question: 'Combien de patients cherchent maintenant un ostéopathe via une IA ?',
+    answer:   'Il n\'existe pas encore de données françaises précises sur ce comportement spécifique. Cependant, ChatGPT dépasse 300 millions d\'utilisateurs hebdomadaires (OpenAI, 2025), Perplexity traite plus de 15 millions de requêtes par jour (Perplexity, 2024), et Google indique que les AI Overviews apparaissent sur environ 50% des recherches. La tendance est clairement à la hausse — et les requêtes de santé sont parmi les plus fréquentes sur ces plateformes.',
+  },
+  {
+    question: 'Un ostéopathe peut-il apparaître dans les réponses IA sans site web ?',
+    answer:   'C\'est possible mais très difficile. Le site web reste la principale source d\'information qu\'un LLM peut indexer sur un praticien. Sans site, l\'essentiel de la stratégie repose sur les profils tiers (Google Business Profile, Doctolib, annuaires professionnels) et les avis patients. C\'est une base insuffisante pour une présence solide — le site web est indispensable.',
+  },
+];
+---
+
+<BaseLayout
+  title="Pourquoi les ostéopathes perdent des patients à cause de l'IA en 2026 | Astivio"
+  description="Analyse du basculement des recherches vers les moteurs IA et son impact sur les cabinets d'ostéopathie. Données chiffrées, mécanismes expliqués, solutions concrètes."
+  schema={schemas}
+>
+
+  <!-- Hero article -->
+  <section class="bg-brand-600 text-white py-16">
+    <div class="container-page">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+        <ol class="flex items-center gap-2 flex-wrap" role="list">
+          <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-current="page" class="text-white font-medium">Article</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="badge-dark">Analyse</span>
+          <span class="text-brand-300 text-sm">7 min de lecture</span>
+        </div>
+        <h1 class="text-white mb-4">
+          Pourquoi les ostéopathes perdent des patients à cause de l'IA en 2026
+        </h1>
+        <!-- Signaux E-E-A-T : auteur + dates -->
+        <div class="flex items-center gap-4 text-sm text-brand-200">
+          <span>Par <a href="/a-propos" class="underline hover:text-white">[Prénom Nom]</a>, fondateur d'Astivio</span>
+          <span>·</span>
+          <time datetime={datePubl}>15 janvier 2025</time>
+          <span>·</span>
+          <span>Mis à jour le <time datetime={dateMaj}>1er février 2025</time></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corps de l'article -->
+  <article class="section bg-white">
+    <div class="container-page">
+      <div class="max-w-3xl mx-auto">
+
+        <!-- TL;DR — AEO/GEO : extractible par les IA, auto-suffisant -->
+        <div class="tldr mb-10">
+          <h2 class="text-sm font-bold text-emerald-700 uppercase tracking-wider mb-3">TL;DR</h2>
+          <ul class="space-y-2 text-sm text-slate-700 leading-relaxed">
+            <li>En 2026, une proportion croissante de patients cherche un ostéopathe directement via ChatGPT, Perplexity ou les AI Overviews de Google, sans passer par une recherche classique.</li>
+            <li>Les LLM recommandent les praticiens qui ont optimisé des signaux spécifiques (données structurées, E-E-A-T, réputation) — différents des signaux SEO classiques.</li>
+            <li>Un ostéopathe bien positionné sur Google peut être totalement absent des réponses IA — et inversement.</li>
+            <li>L'optimisation AEO/GEO corrige cet écart en ciblant spécifiquement les signaux qui influencent les LLM.</li>
+          </ul>
+        </div>
+
+        <!-- Corps -->
+        <div class="prose prose-slate max-w-none space-y-8">
+
+          <section aria-labelledby="intro-titre">
+            <h2 id="intro-titre" class="text-brand-600">Le scénario qui se répète chaque semaine</h2>
+            <p class="text-slate-700 leading-relaxed">
+              Une patiente a le dos bloqué depuis trois jours. Elle ouvre ChatGPT et tape :
+              <em>« Quel ostéopathe consulter à Montpellier pour une lombalgie aiguë ? »</em>
+              En 4 secondes, l'IA lui donne trois noms, une adresse chacun, et une phrase
+              d'explication sur leur spécialité. Elle prend rendez-vous avec le premier.
+              Elle n'a ouvert aucun site web. Elle n'a pas cherché sur Google.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              Si votre cabinet n'est pas dans cette réponse, vous n'existez pas pour elle.
+              Peu importe votre position sur Google, la qualité de votre site, ou votre réputation
+              dans le quartier. Pour ce canal de recherche, vous êtes transparent.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              Ce scénario se reproduit des milliers de fois chaque jour en France.
+              Et la fréquence augmente chaque mois.
+            </p>
+          </section>
+
+          <section aria-labelledby="chiffres-titre">
+            <h2 id="chiffres-titre" class="text-brand-600">Les chiffres qui rendent le sujet urgent</h2>
+
+            <!-- Statistiques sourcées — signal E-E-A-T critique -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+              <div class="bg-brand-50 rounded-xl p-4 text-center">
+                <span class="text-3xl font-bold text-brand-600 block">300 M</span>
+                <span class="text-xs text-slate-500 mt-1 block">utilisateurs hebdomadaires ChatGPT<br/><em>OpenAI, 2025</em></span>
+              </div>
+              <div class="bg-emerald-50 rounded-xl p-4 text-center">
+                <span class="text-3xl font-bold text-emerald-600 block">~50 %</span>
+                <span class="text-xs text-slate-500 mt-1 block">des recherches Google avec AI Overview<br/><em>Google, 2025</em></span>
+              </div>
+              <div class="bg-red-50 rounded-xl p-4 text-center">
+                <span class="text-3xl font-bold text-red-600 block">−35 %</span>
+                <span class="text-xs text-slate-500 mt-1 block">de clics organiques sur requêtes avec IA<br/><em>SparkToro, 2024</em></span>
+              </div>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed">
+              Ces chiffres traduisent un basculement structurel, pas une tendance passagère.
+              En 2020, la quasi-totalité des recherches « ostéopathe [ville] » aboutissaient
+              à une liste de 10 résultats Google. En 2026, une fraction croissante de ces
+              mêmes requêtes génère une réponse directe d'une IA — sans liste, sans clics,
+              sans visite de sites.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              Pour les professionnels de santé libéraux, ce changement est particulièrement
+              brutal. Les requêtes de santé sont parmi les plus fréquentes sur les LLM.
+              Selon Perplexity (2024), les questions de santé représentent plus de 20%
+              de leurs requêtes quotidiennes.
+            </p>
+          </section>
+
+          <section aria-labelledby="mecanisme-titre">
+            <h2 id="mecanisme-titre" class="text-brand-600">Comment les LLM choisissent qui recommander</h2>
+            <p class="text-slate-700 leading-relaxed">
+              Un moteur IA comme ChatGPT ne « cherche » pas dans Google quand vous posez une question.
+              Il génère une réponse à partir de son entraînement — une représentation du savoir
+              disponible sur internet à la date de son dernier entraînement, plus les données
+              accessibles via des outils de recherche en temps réel (pour les modèles qui y ont accès).
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              Pour qu'un LLM recommande votre cabinet, il faut que votre existence soit
+              <strong>bien représentée</strong> dans ces données. Cela dépend de plusieurs facteurs :
+            </p>
+            <ul class="space-y-2 text-slate-700 mt-4">
+              <li class="flex items-start gap-3">
+                <span class="text-emerald-500 mt-1">→</span>
+                <div>
+                  <strong>Volume de présence en ligne :</strong> votre site, vos profils tiers
+                  (Doctolib, Google Business Profile, annuaires), vos avis. Plus vous êtes mentionné,
+                  plus vous existez dans les données d'entraînement.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-emerald-500 mt-1">→</span>
+                <div>
+                  <strong>Données structurées Schema.org :</strong> le JSON-LD sur votre site
+                  permet aux crawlers de comprendre exactement qui vous êtes, ce que vous traitez,
+                  et où vous exercez. C'est la langue des LLM.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-emerald-500 mt-1">→</span>
+                <div>
+                  <strong>Signaux E-E-A-T :</strong> Expérience, Expertise, Autorité, Fiabilité.
+                  Les LLM (surtout ceux alignés sur les guidelines de Google) privilégient les
+                  praticiens qui présentent des signaux de crédibilité clairs.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-emerald-500 mt-1">→</span>
+                <div>
+                  <strong>Contenu répondant directement aux questions :</strong> une page
+                  qui répond à « Un ostéopathe peut-il traiter une sciatique ? » avec une
+                  réponse claire et directe a plus de chances d'être citée qu'une page
+                  générique sur vos services.
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="seo-pas-suffisant-titre">
+            <h2 id="seo-pas-suffisant-titre" class="text-brand-600">
+              Pourquoi un bon SEO ne suffit plus
+            </h2>
+            <p class="text-slate-700 leading-relaxed">
+              C'est le point que beaucoup de praticiens ont du mal à accepter :
+              <strong>un site parfaitement optimisé pour Google peut être totalement ignoré par ChatGPT</strong>.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              Le SEO classique optimise pour un algorithme de classement de pages web.
+              Il pousse votre page dans la liste des 10 résultats que Google présente quand
+              quelqu'un cherche. Mais si la personne pose sa question directement à ChatGPT,
+              cette liste n'existe plus — et vos positions Google n'ont aucune valeur directe.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              Ce n'est pas que le SEO est mort. C'est que le SEO seul n'est plus suffisant.
+              Les LLM qui ont accès à la recherche en temps réel (comme Perplexity ou ChatGPT
+              avec Bing) s'appuient en partie sur les signaux SEO. Mais ils les combinent
+              avec d'autres signaux que le SEO classique n'adresse pas.
+            </p>
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-5 my-6">
+              <p class="text-sm text-amber-800 font-medium">
+                ⚠️ Exemple concret : un ostéopathe en position 1 sur Google pour
+                « ostéopathe Paris 11e » peut être totalement absent de la réponse
+                de Perplexity sur la même requête — simplement parce qu'il n'a pas
+                de données structurées Schema.org, pas de profil Doctolib optimisé,
+                et pas de FAQ structurée sur son site.
+              </p>
+            </div>
+          </section>
+
+          <section aria-labelledby="solution-titre">
+            <h2 id="solution-titre" class="text-brand-600">Ce qu'il faut faire concrètement</h2>
+            <p class="text-slate-700 leading-relaxed">
+              L'optimisation AEO/GEO pour un cabinet d'ostéopathie repose sur
+              7 piliers complémentaires, détaillés dans notre
+              <a href="/methode" class="text-emerald-600 hover:text-emerald-500 font-medium">page Méthode</a>.
+              En résumé :
+            </p>
+            <ol class="space-y-3 mt-4">
+              {[
+                'Auditer votre présence actuelle sur les principaux LLM',
+                'Corriger les fondations techniques (performance, HTML sémantique)',
+                'Implémenter les données structurées Schema.org pertinentes',
+                'Rédiger du contenu spécifiquement conçu pour répondre aux questions IA',
+                'Construire les signaux E-E-A-T (biographie, crédentials, sources)',
+                'Optimiser votre réputation sur les plateformes tierces',
+                'Monitorer votre présence IA et itérer chaque mois',
+              ].map((item, i) => (
+                <li class="flex items-start gap-3 text-slate-700 text-sm">
+                  <span class="w-6 h-6 bg-emerald-500 rounded-full text-white text-xs flex items-center justify-center flex-shrink-0 font-bold">
+                    {i + 1}
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section aria-labelledby="conclusion-titre">
+            <h2 id="conclusion-titre" class="text-brand-600">Conclusion</h2>
+            <p class="text-slate-700 leading-relaxed">
+              La bonne nouvelle : la plupart des ostéopathes n'ont encore rien fait sur ce front.
+              Ceux qui agissent maintenant ont une fenêtre d'opportunité réelle pour
+              s'établir comme la référence sur leur secteur dans les réponses IA,
+              avant que la concurrence ne s'y mette.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              La mauvaise nouvelle : cette fenêtre se ferme. Les premières agences spécialisées
+              commencent à proposer ces services, et chaque mois qui passe rend la compétition
+              plus difficile.
+            </p>
+            <p class="text-slate-700 leading-relaxed">
+              La première étape est simple : mesurer où vous en êtes.
+              Ouvrez Perplexity, tapez « ostéopathe à [votre ville] », et regardez si votre
+              nom apparaît. Si ce n'est pas le cas, vous savez ce qu'il vous reste à faire.
+            </p>
+          </section>
+
+          <!-- Méta E-E-A-T -->
+          <footer class="pt-8 border-t border-slate-100 text-xs text-slate-400">
+            <p>
+              Article rédigé par <a href="/a-propos" class="underline">[Prénom Nom]</a>,
+              fondateur d'Astivio, agence AEO/GEO pour ostéopathes.
+              Publié le 15 janvier 2025 · Mis à jour le 1er février 2025.
+            </p>
+            <p class="mt-1">
+              Sources : OpenAI (2025), Google Search Central (2025),
+              SparkToro « AI Overviews & Clicks » (2024), Perplexity company data (2024).
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- FAQ de l'article -->
+  <FAQ
+    items={faqArticle}
+    title="Questions sur cet article"
+    withSchema={true}
+  />
+
+  <CTABlock
+    title="Votre cabinet est-il visible sur ChatGPT ?"
+    subtitle="Réservez un audit gratuit de 30 minutes pour le savoir — et recevoir les premières recommandations."
+    cta="Réserver l'audit gratuit"
+    ctaHref="/contact"
+    secondary={{ label: 'Lire le guide complet', href: '/blog/etre-cite-par-chatgpt-en-2026' }}
+  />
+
+</BaseLayout>

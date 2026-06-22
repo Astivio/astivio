@@ -1,0 +1,253 @@
+---
+// methode.astro — Page Méthode : processus détaillé A→Z
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQ from '../components/FAQ.astro';
+import CTABlock from '../components/CTABlock.astro';
+import { faqMethode } from '../data/faq';
+import { getBreadcrumbSchema } from '../data/schema';
+
+const breadcrumb = getBreadcrumbSchema([
+  { name: 'Accueil',  url: 'https://astivio.fr/'        },
+  { name: 'Méthode',  url: 'https://astivio.fr/methode/' },
+]);
+
+// Les 7 piliers de la méthode Astivio
+const piliers = [
+  {
+    num:   '01',
+    title: 'Audit de présence IA',
+    icon:  '🔍',
+    desc:  'Avant toute action, nous mesurons l\'état initial. Nous interrogeons systématiquement ChatGPT, Perplexity, Gemini et Copilot avec 15 à 20 requêtes standardisées : requêtes géographiques (« ostéopathe à [ville] »), requêtes par symptôme (« ostéopathe pour lombalgie »), requêtes par spécialité (« ostéopathe pédiatrique »). Nous documentons qui est cité, avec quelle fréquence, et dans quel contexte.',
+    detail: [
+      'Test de 15-20 requêtes standardisées par LLM',
+      'Benchmark de 3 confrères concurrents',
+      'Analyse des données structurées actuelles',
+      'Audit de réputation multiplateforme (Google, Doctolib, Pages Jaunes)',
+      'Score de présence IA initial (0-100)',
+    ],
+  },
+  {
+    num:   '02',
+    title: 'Fondations techniques',
+    icon:  '⚙️',
+    desc:  'Les LLM s\'alimentent principalement des crawls Google et Common Crawl. Un site techniquement défaillant (lent, inaccessible, HTML non sémantique) sera mal indexé — et donc ignoré par les IA. Nous auditonnons et corrigeons les fondations : performance, accessibilité, structure HTML.',
+    detail: [
+      'Audit Lighthouse (objectif > 95 sur tous les indicateurs)',
+      'Vérification de la hiérarchie des titres (un seul H1 par page)',
+      'HTML sémantique strict (article, section, main, nav…)',
+      'Images optimisées (WebP, lazy loading, attributs alt)',
+      'Core Web Vitals dans les seuils recommandés par Google',
+    ],
+  },
+  {
+    num:   '03',
+    title: 'Données structurées Schema.org',
+    icon:  '🏗️',
+    desc:  'Le JSON-LD est le langage que les LLM comprennent le mieux. Chaque type de schéma cible une compréhension différente : Organization pour l\'identité de l\'agence, ProfessionalService pour les services, FAQPage pour les questions/réponses, LocalBusiness pour la géolocalisation, Person pour le praticien.',
+    detail: [
+      'Schema Organization / ProfessionalService',
+      'Schema LocalBusiness avec horaires et coordonnées',
+      'Schema Person pour le praticien',
+      'Schema FAQPage sur toutes les sections Q/R',
+      'Schema BreadcrumbList pour la navigation',
+      'Schema MedicalBusiness pour les praticiens de santé',
+    ],
+  },
+  {
+    num:   '04',
+    title: 'Contenu AEO-optimisé',
+    icon:  '✍️',
+    desc:  'Le contenu est le carburant des LLM. Nous rédigeons des pages et FAQ dont chaque phrase est auto-suffisante : son sens est préservé même si un LLM l\'extrait hors contexte. Nous ciblons les questions exactes que les patients posent aux IA — pas seulement les mots-clés Google.',
+    detail: [
+      'FAQ structurées formulées comme des questions IA naturelles',
+      'TL;DR en tête de chaque page de contenu long',
+      'Phrases auto-suffisantes (sens préservé hors contexte)',
+      'Statistiques chiffrées et sourcées (signal E-E-A-T)',
+      'Pages de services par symptôme, spécialité, localité',
+      'Biographie professionnelle avec crédentials et expérience',
+    ],
+  },
+  {
+    num:   '05',
+    title: 'Signaux E-E-A-T',
+    icon:  '🏅',
+    desc:  'Google (et par extension les LLM qui s\'en alimentent) évalue la crédibilité d\'un professionnel via 4 critères : Expérience, Expertise, Autorité, Fiabilité (E-E-A-T). Pour un ostéopathe, cela se traduit par des signaux précis que nous optimisons systématiquement.',
+    detail: [
+      'Biographie professionnelle complète avec diplômes et formations',
+      'Dates de publication et de mise à jour sur chaque contenu',
+      'Citations dans des sources tierces (presse locale, guides santé)',
+      'Profil Google Business Profile optimisé et vérifié',
+      'Avis patients gérés et répondus (quantité + qualité)',
+      'Inscription dans les répertoires professionnels reconnus',
+    ],
+  },
+  {
+    num:   '06',
+    title: 'Réputation & citations tierces',
+    icon:  '🌐',
+    desc:  'Les LLM accordent un poids important aux mentions dans des sources tierces. Plus votre cabinet est cité sur des sites faisant autorité (annuaires santé, presse locale, blogs spécialisés), plus les LLM le considèrent comme digne de confiance. Nous construisons ces citations.',
+    detail: [
+      'Optimisation des profils Doctolib, Medoucine, Kiné & Co',
+      'Inscription dans les annuaires professionnels (UFOF, registres régionaux)',
+      'Stratégie de relations presse digitales locales',
+      'Co-citations avec des professionnels de santé complémentaires',
+      'Présence sur Wikipedia locale si éligible',
+    ],
+  },
+  {
+    num:   '07',
+    title: 'Monitoring & itération',
+    icon:  '📊',
+    desc:  'La présence dans les réponses IA n\'est pas un acquis permanent. Les LLM sont mis à jour régulièrement, de nouveaux modèles émergent, et la compétition évolue. Nous mesurons chaque mois et ajustons la stratégie en continu.',
+    detail: [
+      'Rapport mensuel de présence IA (score + requêtes testées)',
+      'Benchmark concurrents mis à jour chaque trimestre',
+      'Veille sur les mises à jour des modèles (GPT-5, Gemini 2.0…)',
+      'Ajustements de stratégie à chaque évolution significative',
+      'Tableau de bord partagé en temps réel',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Notre méthode AEO/GEO pour ostéopathes | Astivio"
+  description="Le processus complet d'Astivio pour optimiser la visibilité d'un cabinet d'ostéopathie sur les moteurs IA : audit, fondations techniques, Schema.org, contenu AEO, signaux E-E-A-T, réputation et monitoring mensuel."
+  schema={breadcrumb}
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-600 text-white py-20">
+    <div class="container-page">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+        <ol class="flex items-center gap-2" role="list">
+          <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-current="page" class="text-white font-medium">Méthode</li>
+        </ol>
+      </nav>
+      <div class="max-w-3xl">
+        <span class="badge-dark mb-4">7 piliers · 4 moteurs IA · 1 méthode</span>
+        <h1 class="text-white mb-4">Notre méthode AEO/GEO</h1>
+        <p class="text-xl text-brand-100 leading-relaxed">
+          Comment nous faisons en sorte que ChatGPT, Perplexity, Gemini et Copilot
+          recommandent votre cabinet d'ostéopathie — et pas celui d'un confrère.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TL;DR -->
+  <section class="section bg-white">
+    <div class="container-page">
+      <div class="tldr max-w-3xl mx-auto">
+        <h2 class="text-sm font-bold text-emerald-700 uppercase tracking-wider mb-3">Résumé de la méthode</h2>
+        <p class="text-sm text-slate-700 leading-relaxed">
+          La méthode Astivio repose sur 7 piliers complémentaires : audit initial de présence IA,
+          fondations techniques (SEO, performance), données structurées Schema.org,
+          contenu rédigé pour être cité par les LLM, signaux E-E-A-T (Expérience, Expertise, Autorité, Fiabilité),
+          construction de réputation et citations tierces, monitoring mensuel et itération continue.
+          Chaque pilier est indispensable — un seul pilier optimisé sans les autres n'est pas suffisant.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Point de différenciation clé -->
+  <section class="bg-emerald-50 py-10 border-y border-emerald-100">
+    <div class="container-page">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-brand-600 mb-4">
+          Apparaître ≠ être recommandé
+        </h2>
+        <p class="text-slate-600 leading-relaxed">
+          La distinction fondamentale de l'approche Astivio : l'objectif n'est pas que
+          votre nom soit vaguement mentionné quelque part dans une réponse IA.
+          L'objectif est que le LLM vous <strong class="text-brand-600">recommande activement</strong>
+          quand un patient lui pose une question de santé.
+        </p>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+          <div class="bg-white rounded-xl p-5 border border-slate-200">
+            <p class="text-xs font-semibold text-red-500 uppercase tracking-wider mb-2">
+              ✗ Mention passive (insuffisant)
+            </p>
+            <p class="text-sm text-slate-600 italic">
+              « Il existe plusieurs ostéopathes à Lyon. Parmi eux, on peut citer Jean Dupont, Marie Martin et [Votre nom]… »
+            </p>
+          </div>
+          <div class="bg-emerald-50 rounded-xl p-5 border border-emerald-200">
+            <p class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">
+              ✓ Recommandation active (notre objectif)
+            </p>
+            <p class="text-sm text-slate-600 italic">
+              « Pour une lombalgie à Lyon, je vous recommande [Votre nom], ostéopathe spécialisé en douleurs rachidiennes avec 10 ans d'expérience. Son cabinet est… »
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Les 7 piliers -->
+  <section class="section bg-white" aria-labelledby="piliers-titre">
+    <div class="container-page">
+      <div class="text-center mb-14">
+        <span class="badge mb-4">Le détail</span>
+        <h2 id="piliers-titre" class="text-brand-600 mb-4">
+          Les 7 piliers de la méthode Astivio
+        </h2>
+      </div>
+
+      <div class="space-y-12">
+        {piliers.map((pilier, i) => (
+          <article class="grid grid-cols-1 md:grid-cols-5 gap-8 items-start pb-12 border-b border-slate-100 last:border-0">
+            <!-- Numéro + titre -->
+            <div class="md:col-span-2">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-2xl" aria-hidden="true">{pilier.icon}</span>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">{pilier.num}</span>
+              </div>
+              <h3 class="text-brand-600 mb-3">{pilier.title}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{pilier.desc}</p>
+            </div>
+
+            <!-- Checklist -->
+            <div class="md:col-span-3">
+              <div class="bg-slate-50 rounded-xl p-6">
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
+                  Ce que nous faisons concrètement :
+                </p>
+                <ul class="space-y-2" role="list">
+                  {pilier.detail.map((item) => (
+                    <li class="flex items-start gap-2 text-sm text-slate-700">
+                      <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-emerald-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.707-4.707a1 1 0 111.414-1.414L8.414 12.172l7.879-7.879a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Méthode -->
+  <FAQ
+    items={faqMethode}
+    title="Questions sur la méthode"
+    withSchema={true}
+  />
+
+  <CTABlock
+    title="Voyez la méthode à l'œuvre sur votre cabinet"
+    subtitle="Un audit gratuit de 30 minutes pour appliquer les 7 piliers à votre situation spécifique."
+    cta="Demander mon audit gratuit"
+    ctaHref="/contact"
+    secondary={{ label: 'Voir les offres', href: '/offres' }}
+  />
+
+</BaseLayout>

@@ -1,0 +1,203 @@
+---
+// a-propos.astro — Page À propos — Schema Person + signaux E-E-A-T
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import { founderSchema, getBreadcrumbSchema } from '../data/schema';
+
+const schemas = [
+  founderSchema,
+  getBreadcrumbSchema([
+    { name: 'Accueil',   url: 'https://astivio.fr/'          },
+    { name: 'À propos',  url: 'https://astivio.fr/a-propos/' },
+  ]),
+];
+
+// Valeurs de l'agence
+const valeurs = [
+  {
+    icon: '🎯',
+    title: 'Spécialisation exclusive',
+    desc:  'Astivio travaille uniquement avec des ostéopathes. Cette focalisation nous permet une maîtrise approfondie des requêtes patients, des plateformes sectorielles et des contraintes déontologiques propres à la profession.',
+  },
+  {
+    icon: '🔬',
+    title: 'Mesure systématique',
+    desc:  'Chaque intervention est précédée d\'un audit et suivie de métriques. Nous ne travaillons jamais "à l\'intuition". Présence dans les LLM = données mesurables. Nous les mesurons.',
+  },
+  {
+    icon: '🤝',
+    title: 'Transparence totale',
+    desc:  'Nous affichons nos tarifs, nos méthodes, et nous ne promettons jamais ce que nous ne pouvons pas garantir. La confiance d\'un praticien de santé se mérite — pas de promesses malhonnêtes.',
+  },
+  {
+    icon: '🔄',
+    title: 'Itération continue',
+    desc:  'L\'IA évolue vite — GPT-5, Gemini 2.0, Perplexity Pro, Claude 4… Nous restons à la pointe pour que vos optimisations ne deviennent pas obsolètes dans 6 mois.',
+  },
+];
+---
+
+<BaseLayout
+  title="À propos d'Astivio — Agence AEO/GEO pour ostéopathes"
+  description="Astivio est fondée par [Prénom Nom], spécialiste de la visibilité IA pour les professionnels de santé. Découvrez la vision, les valeurs et la raison d'être de l'agence."
+  schema={schemas}
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-600 text-white py-20">
+    <div class="container-page">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+        <ol class="flex items-center gap-2" role="list">
+          <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-current="page" class="text-white font-medium">À propos</li>
+        </ol>
+      </nav>
+      <div class="max-w-3xl">
+        <span class="badge-dark mb-4">L'agence</span>
+        <h1 class="text-white mb-4">À propos d'Astivio</h1>
+        <p class="text-xl text-brand-100 leading-relaxed">
+          Pourquoi nous existons, qui nous sommes, et ce en quoi nous croyons.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fondateur — Schema Person -->
+  <section class="section bg-white" aria-labelledby="fondateur-titre">
+    <div class="container-page">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+
+        <!-- Photo placeholder -->
+        <div class="md:col-span-1">
+          <div class="aspect-square bg-brand-100 rounded-2xl flex items-center justify-center" aria-label="Photo du fondateur">
+            <div class="text-center">
+              <div class="w-24 h-24 bg-brand-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span class="text-4xl text-brand-600 font-bold" aria-hidden="true">FN</span>
+              </div>
+              <p class="text-brand-400 text-sm">[Photo à ajouter]</p>
+            </div>
+          </div>
+          <!-- Crédentials — signal E-E-A-T -->
+          <div class="mt-6 space-y-3">
+            <div class="flex items-center gap-2 text-sm text-slate-600">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.707-4.707a1 1 0 111.414-1.414L8.414 12.172l7.879-7.879a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Fondateur & Expert AEO/GEO
+            </div>
+            <div class="flex items-center gap-2 text-sm text-slate-600">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.707-4.707a1 1 0 111.414-1.414L8.414 12.172l7.879-7.879a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Spécialiste visibilité IA santé
+            </div>
+            <div class="flex items-center gap-2 text-sm text-slate-600">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.707-4.707a1 1 0 111.414-1.414L8.414 12.172l7.879-7.879a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              [Diplôme / Formation à ajouter]
+            </div>
+            <div class="flex items-center gap-2 text-sm text-slate-600">
+              <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.707-4.707a1 1 0 111.414-1.414L8.414 12.172l7.879-7.879a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Astivio fondée en 2024
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio — signal E-E-A-T : auteur identifié avec crédentials -->
+        <div class="md:col-span-2">
+          <h2 id="fondateur-titre" class="text-brand-600 mb-2">[Prénom Nom]</h2>
+          <p class="text-emerald-600 font-medium mb-6">Fondateur d'Astivio</p>
+
+          <div class="space-y-4 text-slate-600 leading-relaxed">
+            <p>
+              [Prénom Nom] est le fondateur d'Astivio et spécialiste de la visibilité IA
+              pour les professionnels de santé. [Texte de bio à personnaliser.]
+            </p>
+            <p>
+              L'idée d'Astivio est née d'un constat simple : en 2024, lors de consultations
+              sur des cabinets médicaux, il devenait évident que les patients commençaient
+              à utiliser ChatGPT et Perplexity pour trouver des praticiens. Pourtant, aucune
+              des agences de référencement existantes ne proposait d'optimisation spécifique
+              pour ce nouveau type de recherche.
+            </p>
+            <p>
+              Astivio a été fondée pour combler ce vide — avec une spécialisation exclusive
+              sur les ostéopathes, une profession libérale particulièrement exposée à cette
+              transition vers la recherche IA, et particulièrement sous-équipée pour y répondre.
+            </p>
+            <p>
+              [Ajoutez ici votre parcours, vos formations, vos expériences passées pertinentes,
+              et pourquoi l'ostéopathie vous tient à cœur — plus vous êtes concret,
+              plus les signaux E-E-A-T sont forts.]
+            </p>
+          </div>
+
+          <!-- Date de publication — signal E-E-A-T -->
+          <p class="text-xs text-slate-400 mt-6">
+            Page À propos · Dernière mise à jour : janvier 2025
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- La vision -->
+  <section class="section bg-slate-50" aria-labelledby="vision-titre">
+    <div class="container-page">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="badge mb-4">Notre vision</span>
+        <h2 id="vision-titre" class="text-brand-600 mb-6">
+          Pourquoi Astivio existe
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+          La recherche d'information est en train de vivre la plus grande transformation
+          de son histoire depuis l'invention du moteur de recherche. En 20 ans,
+          Google a imposé une logique de « 10 liens bleus ». En 3 ans, les LLM
+          l'ont remplacée par une logique de recommandation directe.
+        </p>
+        <p class="text-slate-600 leading-relaxed mb-6">
+          Cette transition est particulièrement brutale pour les professionnels de santé libéraux.
+          Ils ont investi dans des sites web, du SEO, des pages Doctolib — et tout ça
+          reste important. Mais ça ne suffit plus si les IA ne les connaissent pas.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          La mission d'Astivio : faire en sorte qu'aucun bon ostéopathe ne reste invisible
+          à cause d'une transition technologique qu'il n'a pas vue venir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valeurs -->
+  <section class="section bg-white" aria-labelledby="valeurs-titre">
+    <div class="container-page">
+      <div class="text-center mb-12">
+        <h2 id="valeurs-titre" class="text-brand-600 mb-4">Nos valeurs</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        {valeurs.map((v) => (
+          <article class="flex gap-4">
+            <span class="text-2xl flex-shrink-0" aria-hidden="true">{v.icon}</span>
+            <div>
+              <h3 class="text-brand-600 mb-2">{v.title}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">{v.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Une question sur l'agence ou la méthode ?"
+    subtitle="Réservez un échange de 30 minutes. Pas un pitch commercial — une vraie discussion sur votre situation."
+    cta="Prendre contact"
+    ctaHref="/contact"
+    secondary={{ label: 'Découvrir la méthode', href: '/methode' }}
+  />
+
+</BaseLayout>

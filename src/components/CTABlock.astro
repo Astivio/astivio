@@ -1,0 +1,54 @@
+---
+// CTABlock.astro — Bloc d'appel à l'action réutilisable
+
+interface Props {
+  title:     string;
+  subtitle?: string;
+  cta:       string;
+  ctaHref:   string;
+  secondary?: { label: string; href: string };
+  dark?:     boolean;
+}
+
+const {
+  title,
+  subtitle,
+  cta,
+  ctaHref,
+  secondary,
+  dark = true,
+} = Astro.props;
+---
+
+<section class:list={['section', dark ? 'bg-brand-600' : 'bg-emerald-50']}>
+  <div class="container-page text-center">
+    <h2 class:list={['mb-4', dark ? 'text-white' : 'text-brand-600']}>
+      {title}
+    </h2>
+    {subtitle && (
+      <p class:list={['text-lg max-w-2xl mx-auto mb-8', dark ? 'text-brand-100' : 'text-slate-600']}>
+        {subtitle}
+      </p>
+    )}
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href={ctaHref} class={dark ? 'btn-primary' : 'btn-outline'}>
+        {cta}
+      </a>
+      {secondary && (
+        <a
+          href={secondary.href}
+          class:list={[
+            'text-sm font-medium transition-colors',
+            dark ? 'text-brand-100 hover:text-white' : 'text-slate-600 hover:text-brand-600',
+          ]}
+        >
+          {secondary.label}
+        </a>
+      )}
+    </div>
+    <!-- Micro-signal de réassurance -->
+    <p class:list={['mt-6 text-xs', dark ? 'text-brand-200' : 'text-slate-500']}>
+      ✓ Sans engagement &nbsp;·&nbsp; ✓ Réponse sous 24h &nbsp;·&nbsp; ✓ Spécialiste ostéopathie
+    </p>
+  </div>
+</section>

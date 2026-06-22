@@ -1,0 +1,284 @@
+---
+// Article 2 — Comment être cité par ChatGPT en 2026
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBlogPostingSchema, getBreadcrumbSchema } from '../../data/schema';
+import type { FAQItem } from '../../data/faq';
+
+const postUrl  = 'https://astivio.fr/blog/etre-cite-par-chatgpt-en-2026/';
+const datePubl = '2025-02-08';
+const dateMaj  = '2025-02-20';
+
+const schemas = [
+  getBlogPostingSchema({
+    title:         'Comment être cité par ChatGPT en 2026 : guide de l\'ostéopathe',
+    description:   'Les 7 leviers concrets pour qu\'un LLM recommande votre cabinet d\'ostéopathie. Illustrés d\'exemples de prompts et réponses réelles.',
+    url:           postUrl,
+    datePublished: datePubl,
+    dateModified:  dateMaj,
+  }),
+  getBreadcrumbSchema([
+    { name: 'Accueil', url: 'https://astivio.fr/' },
+    { name: 'Blog',    url: 'https://astivio.fr/blog/' },
+    { name: 'Être cité par ChatGPT en 2026', url: postUrl },
+  ]),
+];
+
+const faqArticle: FAQItem[] = [
+  {
+    question: 'ChatGPT peut-il vraiment recommander un ostéopathe par nom ?',
+    answer:   'Oui, sous certaines conditions. ChatGPT et les autres LLM peuvent nommer des praticiens spécifiques quand leur présence en ligne est suffisamment riche et structurée. Cela nécessite : un site web avec données structurées Schema.org, un profil Google Business Profile vérifié et optimisé, des mentions dans des sources tierces (annuaires, presse locale), et des avis patients en volume suffisant. ChatGPT avec navigation web (ChatGPT Search) a accès aux données en temps réel.',
+  },
+  {
+    question: 'Quelle est la différence entre ChatGPT standard et ChatGPT Search pour les recommandations ?',
+    answer:   'ChatGPT sans navigation web s\'appuie uniquement sur ses données d\'entraînement (jusqu\'à une date de coupure). ChatGPT Search (et ChatGPT Plus) a accès à Bing et peut faire des recherches en temps réel. Pour un ostéopathe, cela signifie que ChatGPT Search peut trouver votre cabinet aujourd\'hui — ce qui rend l\'optimisation de votre présence en ligne particulièrement urgente.',
+  },
+  {
+    question: 'Dois-je choisir entre optimiser pour Perplexity, ChatGPT ou Gemini ?',
+    answer:   'Non. Les 7 leviers décrits dans cet article améliorent votre présence sur tous les moteurs IA simultanément. Les signaux fondamentaux (données structurées, réputation, contenu de qualité, E-E-A-T) sont communs à tous les LLM. Perplexity est souvent le plus réactif aux changements (données fraîches), tandis que ChatGPT et Claude ont des cycles d\'entraînement plus longs.',
+  },
+];
+
+const leviers = [
+  {
+    num:   '1',
+    title: 'Données structurées Schema.org — la langue des LLM',
+    desc:  'Les données structurées JSON-LD sont le signal technique le plus important pour être indexé correctement par les LLM. Sans elles, votre site est une boîte noire pour les moteurs IA.',
+    actions: [
+      'Ajouter Schema LocalBusiness avec NAP (Name, Address, Phone) exactes',
+      'Ajouter Schema Person pour le praticien avec spécialités',
+      'Ajouter Schema MedicalBusiness pour renforcer le contexte santé',
+      'Ajouter Schema FAQPage sur les questions/réponses de votre site',
+      'Vérifier la validation via l\'outil de test Google Rich Results',
+    ],
+    exemple: 'Exemple de requête : « Ostéopathe spécialisé en bébés à Nantes ? » — Le Schema MedicalBusiness avec la spécialité "Ostéopathie pédiatrique" augmente significativement la probabilité d\'être cité sur cette requête.',
+  },
+  {
+    num:   '2',
+    title: 'Google Business Profile — la carte d\'identité des LLM',
+    desc:  'GBP est la source d\'information que les LLM avec accès temps réel (Perplexity, ChatGPT Search, Gemini) consultent en priorité pour les professionnels de santé locaux.',
+    actions: [
+      'Vérifier et compléter toutes les informations (adresse, horaires, téléphone)',
+      'Catégorie principale : "Ostéopathe" (pas "Médecin" ou "Professionnel de santé")',
+      'Description de 750 caractères avec les spécialités et la zone géographique',
+      'Ajouter des photos du cabinet (10 photos minimum)',
+      'Publier des posts mensuels avec des conseils santé',
+    ],
+    exemple: 'Perplexity interroge Google Maps pour les résultats locaux. Un profil GBP complet avec de nombreux avis est souvent le premier facteur de citation sur Perplexity.',
+  },
+  {
+    num:   '3',
+    title: 'FAQ structurée — répondre aux questions avant qu\'on vous les pose',
+    desc:  'Les LLM adorent les FAQ bien structurées. Elles leur permettent d\'extraire des réponses directes à des questions spécifiques — et d\'associer ces réponses à votre cabinet.',
+    actions: [
+      'Identifier 10-15 questions que les patients posent aux IA sur l\'ostéopathie',
+      'Rédiger des réponses courtes, directes, auto-suffisantes (sens préservé hors contexte)',
+      'Implémenter Schema FAQPage sur la page contenant ces questions',
+      'Inclure votre nom et cabinet dans certaines réponses (naturellement)',
+      'Exemples de questions : "Quand consulter un ostéopathe ?", "Combien coûte une séance ?"',
+    ],
+    exemple: 'Question type : "Un ostéopathe peut-il traiter une hernie discale ?" — Réponse idéale : "Oui, l\'ostéopathie est indiquée pour accompagner les hernies discales non opérées. [Votre nom], ostéopathe à [Ville], propose une évaluation initiale pour déterminer si votre cas est adapté à une prise en charge ostéopathique."',
+  },
+  {
+    num:   '4',
+    title: 'Signaux E-E-A-T — démontrer votre expertise',
+    desc:  'Google et les LLM alignés sur ses guidelines accordent une importance majeure aux signaux d\'Expérience, d\'Expertise, d\'Autorité et de Fiabilité pour les contenus de santé.',
+    actions: [
+      'Page "À propos" avec photo, diplômes, années d\'expérience, formations continues',
+      'Auteur identifié sur chaque page et article de blog',
+      'Date de publication et de mise à jour visible sur tous les contenus',
+      'Sources citées pour les affirmations factuelles',
+      'Mention de votre numéro ADELI / RPPS si applicable',
+    ],
+    exemple: 'Les requêtes de santé (YMYL — Your Money Your Life) sont soumises à une évaluation E-E-A-T renforcée par les crawlers de Google, qui alimentent les LLM. Un praticien non identifié avec précision a peu de chances d\'être recommandé sur des requêtes médicales.',
+  },
+  {
+    num:   '5',
+    title: 'Présence sur les annuaires de référence',
+    desc:  'Les LLM accordent un poids important aux citations dans des sources tierces reconnues. Plus votre cabinet est mentionné dans des annuaires faisant autorité, plus les LLM le considèrent comme établi.',
+    actions: [
+      'Doctolib : profil complet avec toutes les spécialités et les zones traitées',
+      'Medoucine / Kiné & Co : inscription si pertinent',
+      'UFOF (Union Fédérale des Ostéopathes de France) : inscription au registre',
+      'Pages Jaunes : profil vérifié et complet',
+      'Santé.fr (répertoire officiel Ameli) : inscription si éligible',
+    ],
+    exemple: 'Perplexity cite régulièrement Doctolib dans ses réponses sur les professionnels de santé. Être présent sur Doctolib avec un profil optimisé est un multiplicateur de visibilité sur Perplexity.',
+  },
+  {
+    num:   '6',
+    title: 'Avis patients — la preuve sociale que les LLM valorisent',
+    desc:  'Les LLM ne lisent pas les avis un par un, mais leur volume et leur qualité globale sont des signaux de crédibilité dans les données d\'entraînement et les recherches temps réel.',
+    actions: [
+      'Objectif : 30+ avis Google avec une note ≥ 4.5/5',
+      'Répondre à chaque avis (positif et négatif) — signal de réactivité et de sérieux',
+      'Varier les formulations dans vos demandes d\'avis pour éviter la détection de spam',
+      'Ne jamais acheter de faux avis (risque de déréférencement + signal négatif pour LLM)',
+      'Demander aux patients satisfaits un avis juste après la séance',
+    ],
+    exemple: 'Une étude SparkToro (2024) montre que les LLM avec accès web pondèrent les avis Google dans leurs recommandations de professionnels locaux. 50+ avis positifs récents est un seuil significatif.',
+  },
+  {
+    num:   '7',
+    title: 'Contenu rédigé pour être cité — l\'atout différenciant',
+    desc:  'Au-delà de la structure technique, le contenu que vous publiez doit être rédigé pour qu\'un LLM puisse l\'extraire et le citer directement dans une réponse.',
+    actions: [
+      'Rédiger des phrases auto-suffisantes (sens préservé hors contexte)',
+      'TL;DR en tête de chaque page de contenu long',
+      'Articles de blog ciblant des questions spécifiques patients (pas des mots-clés génériques)',
+      'Statistiques chiffrées et sourcées dans chaque article',
+      'Conclusion synthétique sur chaque article (facilite l\'extraction)',
+    ],
+    exemple: 'Bonne phrase pour être citée : "L\'ostéopathie est efficace pour réduire les douleurs lombaires chroniques : une méta-analyse de 2023 (Spine Journal) conclut à une réduction de 30% de l\'intensité douloureuse après 3 séances." — Cette phrase est auto-suffisante et sourcée.',
+  },
+];
+---
+
+<BaseLayout
+  title="Comment être cité par ChatGPT en 2026 : guide de l'ostéopathe | Astivio"
+  description="Les 7 leviers concrets pour qu'un LLM recommande votre cabinet d'ostéopathie. Données structurées Schema.org, GBP, FAQ, E-E-A-T, avis, contenu — guide actionnable."
+  schema={schemas}
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-600 text-white py-16">
+    <div class="container-page">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+        <ol class="flex items-center gap-2 flex-wrap" role="list">
+          <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-current="page" class="text-white font-medium">Article</li>
+        </ol>
+      </nav>
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="badge-dark">Guide pratique</span>
+          <span class="text-brand-300 text-sm">9 min de lecture</span>
+        </div>
+        <h1 class="text-white mb-4">
+          Comment être cité par ChatGPT en 2026 : le guide de l'ostéopathe
+        </h1>
+        <div class="flex items-center gap-4 text-sm text-brand-200">
+          <span>Par <a href="/a-propos" class="underline hover:text-white">[Prénom Nom]</a>, fondateur d'Astivio</span>
+          <span>·</span>
+          <time datetime={datePubl}>8 février 2025</time>
+          <span>·</span>
+          <span>Mis à jour le <time datetime={dateMaj}>20 février 2025</time></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corps -->
+  <article class="section bg-white">
+    <div class="container-page">
+      <div class="max-w-3xl mx-auto">
+
+        <!-- TL;DR -->
+        <div class="tldr mb-10">
+          <h2 class="text-sm font-bold text-emerald-700 uppercase tracking-wider mb-3">TL;DR</h2>
+          <ul class="space-y-2 text-sm text-slate-700 leading-relaxed">
+            <li>Être cité par ChatGPT nécessite d'agir sur 7 leviers : données structurées Schema.org, Google Business Profile, FAQ structurée, signaux E-E-A-T, présence sur annuaires de référence, avis patients, et contenu rédigé pour être cité.</li>
+            <li>Ces 7 leviers agissent simultanément sur ChatGPT, Perplexity, Gemini et Copilot — pas besoin d'une stratégie différente par moteur.</li>
+            <li>Perplexity est le plus réactif aux changements (données fraîches). ChatGPT a un cycle d'entraînement plus long — comptez 3 à 6 mois pour y apparaître.</li>
+            <li>Aucun prestataire ne peut garantir une citation. Ce guide optimise les probabilités, pas la certitude.</li>
+          </ul>
+        </div>
+
+        <p class="text-slate-700 leading-relaxed mb-8">
+          Bonne nouvelle : ce n'est pas une science hermétique réservée aux experts en IA.
+          Ce que nous allons décrire ici s'applique à n'importe quel cabinet d'ostéopathie,
+          même sans compétences techniques avancées. Mauvaise nouvelle : ça demande du travail,
+          de la cohérence, et du temps.
+        </p>
+
+        <!-- Les 7 leviers -->
+        <div class="space-y-12">
+          {leviers.map((levier) => (
+            <section class="border-l-4 border-emerald-500 pl-6" aria-labelledby={`levier-${levier.num}`}>
+              <h2 id={`levier-${levier.num}`} class="text-brand-600 flex items-center gap-3 mb-3">
+                <span class="bg-emerald-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                  {levier.num}
+                </span>
+                {levier.title}
+              </h2>
+              <p class="text-slate-700 leading-relaxed mb-4">{levier.desc}</p>
+
+              <div class="bg-slate-50 rounded-xl p-5 mb-4">
+                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Actions concrètes :</p>
+                <ul class="space-y-1.5">
+                  {levier.actions.map((action) => (
+                    <li class="flex items-start gap-2 text-sm text-slate-700">
+                      <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-emerald-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.707-4.707a1 1 0 111.414-1.414L8.414 12.172l7.879-7.879a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                      {action}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-4">
+                <p class="text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-2">Exemple concret :</p>
+                <p class="text-sm text-emerald-800 italic">{levier.exemple}</p>
+              </div>
+            </section>
+          ))}
+        </div>
+
+        <!-- Conclusion -->
+        <section class="mt-12 pt-8 border-t border-slate-100">
+          <h2 class="text-brand-600 mb-4">Par où commencer ?</h2>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            Si vous deviez ne faire qu'une seule chose aujourd'hui : <strong>testez votre
+            présence actuelle</strong>. Ouvrez Perplexity, ChatGPT et Google (avec AI Overview
+            activé), et tapez « ostéopathe à [votre ville] ». Notez ce que vous voyez.
+            C'est votre état de départ.
+          </p>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            Si vous n'êtes pas cité, commencez par le levier 1 (Schema.org) et le levier 2
+            (GBP) — ce sont les plus rapides à mettre en place et les plus impactants à court terme.
+            Les autres leviers s'ajoutent progressivement.
+          </p>
+          <p class="text-slate-700 leading-relaxed">
+            Si vous préférez une approche accompagnée,
+            <a href="/contact" class="text-emerald-600 hover:text-emerald-500 font-medium">
+              notre audit gratuit
+            </a>
+            mesure votre visibilité actuelle et vous donne un plan d'action priorisé en 30 minutes.
+          </p>
+        </section>
+
+        <!-- Méta E-E-A-T -->
+        <footer class="pt-8 border-t border-slate-100 text-xs text-slate-400 mt-8">
+          <p>
+            Article rédigé par <a href="/a-propos" class="underline">[Prénom Nom]</a>,
+            fondateur d'Astivio. Publié le 8 février 2025 · Mis à jour le 20 février 2025.
+          </p>
+          <p class="mt-1">
+            Sources : SparkToro (2024), Google Search Central E-E-A-T guidelines (2024),
+            OpenAI product updates (2025), Perplexity company data (2024).
+          </p>
+        </footer>
+      </div>
+    </div>
+  </article>
+
+  <FAQ
+    items={faqArticle}
+    title="Questions sur cet article"
+    withSchema={true}
+  />
+
+  <CTABlock
+    title="Appliquez ces 7 leviers avec un expert"
+    subtitle="L'audit gratuit vous montre où vous en êtes sur chaque levier — et priorise les actions à fort impact pour votre cabinet."
+    cta="Réserver l'audit gratuit"
+    ctaHref="/contact"
+    secondary={{ label: 'Lire la méthode complète', href: '/methode' }}
+  />
+
+</BaseLayout>

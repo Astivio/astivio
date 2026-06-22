@@ -1,0 +1,193 @@
+---
+// contact.astro — Page Contact / Réserver un audit
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getBreadcrumbSchema } from '../data/schema';
+
+const breadcrumb = getBreadcrumbSchema([
+  { name: 'Accueil',  url: 'https://astivio.fr/'         },
+  { name: 'Contact',  url: 'https://astivio.fr/contact/' },
+]);
+
+// Ce qui se passe pendant l'audit — réassurance
+const deroulement = [
+  {
+    num:   '1',
+    title: 'Vous réservez un créneau',
+    desc:  'Via le lien de prise de rendez-vous ci-dessous. 30 minutes, en visioconférence.',
+  },
+  {
+    num:   '2',
+    title: 'Nous analysons votre situation avant l\'appel',
+    desc:  'Nous testons votre visibilité sur ChatGPT, Perplexity et Gemini avec 5 à 10 requêtes pertinentes.',
+  },
+  {
+    num:   '3',
+    title: 'Appel de 30 minutes',
+    desc:  'Nous vous présentons les résultats bruts : qui est cité, qui ne l\'est pas, pourquoi. Sans jargon.',
+  },
+  {
+    num:   '4',
+    title: 'Recommandations immédiates',
+    desc:  'Vous repartez avec 3 à 5 actions concrètes, réalisables immédiatement — même sans nous.',
+  },
+];
+---
+
+<BaseLayout
+  title="Contact & Audit gratuit AEO/GEO | Astivio"
+  description="Réservez votre audit de visibilité IA gratuit. En 30 minutes, Astivio analyse la présence de votre cabinet d'ostéopathie sur ChatGPT, Perplexity et Google Gemini."
+  schema={breadcrumb}
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-600 text-white py-20">
+    <div class="container-page">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+        <ol class="flex items-center gap-2" role="list">
+          <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-current="page" class="text-white font-medium">Contact</li>
+        </ol>
+      </nav>
+      <div class="max-w-3xl">
+        <span class="badge-dark mb-4">Gratuit · 30 min · Sans engagement</span>
+        <h1 class="text-white mb-4">Réserver votre audit de visibilité IA</h1>
+        <p class="text-xl text-brand-100 leading-relaxed">
+          En 30 minutes, nous mesurons votre présence actuelle sur ChatGPT, Perplexity
+          et Google Gemini — et nous vous disons exactement ce qui bloque.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenu principal -->
+  <section class="section bg-white">
+    <div class="container-page">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
+
+        <!-- Colonne gauche : déroulement + contact alternatif -->
+        <div class="lg:col-span-2">
+          <h2 class="text-brand-600 text-xl mb-6">
+            Ce qui se passe pendant l'audit
+          </h2>
+
+          <ol class="space-y-6" role="list">
+            {deroulement.map((step) => (
+              <li class="flex gap-4">
+                <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  {step.num}
+                </div>
+                <div>
+                  <h3 class="font-semibold text-brand-600 mb-1 text-base">{step.title}</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed">{step.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <!-- Signaux de réassurance -->
+          <div class="mt-8 p-4 bg-slate-50 rounded-xl">
+            <ul class="space-y-2 text-sm text-slate-600">
+              <li class="flex items-center gap-2">
+                <span class="text-emerald-500">✓</span> Gratuit, sans obligation de suite
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-emerald-500">✓</span> 30 minutes seulement
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-emerald-500">✓</span> En visioconférence (ou téléphone)
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-emerald-500">✓</span> Recommandations immédiates actionnables
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact alternatif -->
+          <div class="mt-8 pt-8 border-t border-slate-100">
+            <h3 class="font-semibold text-brand-600 mb-3">Préférez-vous écrire ?</h3>
+            <p class="text-sm text-slate-600 mb-3">
+              Envoyez-nous un email et nous vous répondrons sous 24h ouvrées.
+            </p>
+            <a
+              href="mailto:contact@astivio.fr"
+              class="text-emerald-600 font-medium hover:text-emerald-500 transition-colors text-sm"
+            >
+              contact@astivio.fr →
+            </a>
+          </div>
+        </div>
+
+        <!-- Colonne droite : embed Calendly -->
+        <div class="lg:col-span-3">
+          <div class="card p-8">
+            <h2 class="text-brand-600 text-xl mb-2">Choisissez un créneau</h2>
+            <p class="text-sm text-slate-500 mb-6">
+              Tous les créneaux sont disponibles en semaine, 9h-18h (heure de Paris).
+            </p>
+
+            <!-- ╔═══════════════════════════════════════════════════╗
+                 ║  PLACEHOLDER CALENDLY — À REMPLACER              ║
+                 ║                                                   ║
+                 ║  Remplacez l'URL ci-dessous par votre lien       ║
+                 ║  Calendly ou Cal.com :                           ║
+                 ║                                                   ║
+                 ║  Calendly :                                       ║
+                 ║  <div class="calendly-inline-widget"             ║
+                 ║    data-url="https://calendly.com/[VOTRE-NOM]"  ║
+                 ║    style="min-width:320px;height:700px;">        ║
+                 ║  </div>                                          ║
+                 ║  <script src="https://assets.calendly.com/      ║
+                 ║    assets/external/widget.js"></script>          ║
+                 ║                                                   ║
+                 ║  Cal.com :                                        ║
+                 ║  <cal-inline calLink="[VOTRE-NOM]/audit">       ║
+                 ║  </cal-inline>                                   ║
+                 ╚═══════════════════════════════════════════════════╝ -->
+
+            <div class="bg-brand-50 border-2 border-dashed border-brand-200 rounded-xl p-8 text-center">
+              <div class="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <h3 class="text-brand-600 font-semibold mb-2">Prise de rendez-vous</h3>
+              <p class="text-sm text-slate-500 mb-4">
+                Module Calendly à intégrer ici.
+              </p>
+              <code class="text-xs bg-white px-3 py-1.5 rounded border border-brand-100 text-brand-400 block mb-4">
+                [LIEN_CALENDLY] — voir README.md §4
+              </code>
+              <a
+                href="mailto:contact@astivio.fr?subject=Demande d'audit AEO/GEO&body=Bonjour, je souhaite réserver un audit de visibilité IA pour mon cabinet d'ostéopathie. Voici mes disponibilités : "
+                class="btn-primary text-sm"
+              >
+                En attendant, écrire par email →
+              </a>
+            </div>
+          </div>
+
+          <!-- FAQ rapide -->
+          <div class="mt-6 p-6 bg-slate-50 rounded-xl">
+            <h3 class="text-sm font-semibold text-brand-600 mb-4">Questions fréquentes sur l'audit</h3>
+            <dl class="space-y-4">
+              <div>
+                <dt class="text-sm font-medium text-slate-700">L'audit est-il vraiment gratuit ?</dt>
+                <dd class="text-sm text-slate-500 mt-1">Oui, sans condition ni engagement. Le seul investissement est 30 minutes de votre temps.</dd>
+              </div>
+              <div>
+                <dt class="text-sm font-medium text-slate-700">Dois-je préparer quoi que ce soit ?</dt>
+                <dd class="text-sm text-slate-500 mt-1">Rien de particulier. Ayez votre URL de site web sous la main si vous en avez un. Nous faisons le reste.</dd>
+              </div>
+              <div>
+                <dt class="text-sm font-medium text-slate-700">Y a-t-il une suite obligatoire ?</dt>
+                <dd class="text-sm text-slate-500 mt-1">Non. Vous avez le droit de repartir avec les recommandations et de les appliquer seul. Nous préférons être utiles que vendeurs.</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

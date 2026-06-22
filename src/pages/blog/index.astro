@@ -1,0 +1,105 @@
+---
+// blog/index.astro — Index du blog
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import { getBreadcrumbSchema } from '../../data/schema';
+
+const breadcrumb = getBreadcrumbSchema([
+  { name: 'Accueil', url: 'https://astivio.fr/'      },
+  { name: 'Blog',    url: 'https://astivio.fr/blog/' },
+]);
+
+const posts = [
+  {
+    title:    'Pourquoi les ostéopathes perdent des patients à cause de l\'IA en 2026',
+    excerpt:  'Vos confrères s\'affichent dans les réponses de ChatGPT et Perplexity pendant que votre cabinet reste invisible. Comprendre le mécanisme est la première étape pour y remédier. Analyse complète avec données chiffrées.',
+    slug:     'pourquoi-les-osteophates-perdent-des-clients-face-a-ia',
+    date:     '2025-01-15',
+    category: 'Analyse',
+    readTime: 7,
+  },
+  {
+    title:    'Comment être cité par ChatGPT en 2026 : guide de l\'ostéopathe',
+    excerpt:  'Les 7 leviers concrets que nous activons pour qu\'un LLM recommande votre cabinet. Illustrés d\'exemples réels de prompts et réponses. Un guide actionnable, pas de la théorie.',
+    slug:     'etre-cite-par-chatgpt-en-2026',
+    date:     '2025-02-08',
+    category: 'Guide pratique',
+    readTime: 9,
+  },
+  {
+    title:    'AEO vs GEO vs SEO : le guide définitif pour les professionnels de santé',
+    excerpt:  'Trois acronymes, une seule stratégie cohérente. Nous expliquons ce qui change, ce qui reste, et comment articuler les trois approches pour votre cabinet d\'ostéopathie.',
+    slug:     'aeo-geo-seo-guide-complet',
+    date:     '2025-02-22',
+    category: 'Éducation',
+    readTime: 11,
+  },
+];
+---
+
+<BaseLayout
+  title="Blog AEO/GEO pour ostéopathes — Guides & Ressources | Astivio"
+  description="Guides pratiques, analyses et ressources sur l'optimisation AEO/GEO pour les cabinets d'ostéopathie. Comment apparaître dans ChatGPT, Perplexity et Google Gemini."
+  schema={breadcrumb}
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-600 text-white py-20">
+    <div class="container-page">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+        <ol class="flex items-center gap-2" role="list">
+          <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-current="page" class="text-white font-medium">Blog</li>
+        </ol>
+      </nav>
+      <div class="max-w-3xl">
+        <span class="badge-dark mb-4">Ressources gratuites</span>
+        <h1 class="text-white mb-4">Blog AEO/GEO</h1>
+        <p class="text-xl text-brand-100 leading-relaxed">
+          Guides pratiques et analyses pour comprendre et appliquer
+          l'optimisation des moteurs IA à votre cabinet d'ostéopathie.
+          Chaque article est lui-même optimisé AEO/GEO.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section class="section bg-white">
+    <div class="container-page">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {posts.map((post) => (
+          <BlogCard {...post} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Note éditoriale — signal E-E-A-T -->
+  <section class="bg-slate-50 py-10 border-t border-slate-100">
+    <div class="container-page">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-sm font-semibold text-brand-600 mb-2">Note éditoriale</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Chaque article publié sur ce blog applique lui-même les techniques AEO/GEO qu'il décrit :
+          données structurées BlogPosting, TL;DR extractible, FAQ structurée, phrases auto-suffisantes.
+          C'est notre façon de démontrer la méthode plutôt que de la vendre.
+        </p>
+        <p class="text-xs text-slate-400 mt-3">
+          Auteur : [Prénom Nom] · Fondateur d'Astivio · Dernière mise à jour du blog : février 2025
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABlock
+    title="Un article vous a donné envie d'agir ?"
+    subtitle="L'audit gratuit est le meilleur point de départ : 30 minutes pour mesurer concrètement votre visibilité IA."
+    cta="Réserver l'audit gratuit"
+    ctaHref="/contact"
+    dark={true}
+  />
+
+</BaseLayout>

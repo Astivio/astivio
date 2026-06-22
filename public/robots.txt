@@ -1,0 +1,64 @@
+# robots.txt — Astivio.fr
+# AEO/GEO : autoriser explicitement chaque crawler IA est une pratique
+# fondamentale de l'optimisation GEO. Sans ces directives, certains bots
+# peuvent interpréter l'absence de règle comme un blocage implicite.
+
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Moteurs de recherche classiques
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# ── CRAWLERS IA (critiques pour le GEO) ──────────────────────────────
+
+# OpenAI — alimente ChatGPT et ses plugins
+User-agent: GPTBot
+Allow: /
+
+# OpenAI — client web ChatGPT
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic — alimente Claude
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity AI — moteur de recherche IA
+User-agent: PerplexityBot
+Allow: /
+
+# Google — alimente les AI Overviews et Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl — base de données source de nombreux LLM
+User-agent: CCBot
+Allow: /
+
+# Apple — alimente Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta — alimente Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Cohere — modèles de langage entreprise
+User-agent: cohere-ai
+Allow: /
+
+# ── FICHIERS DE DÉCOUVERTE ────────────────────────────────────────────
+
+# Sitemap XML pour la découverte de toutes les pages
+Sitemap: https://astivio.fr/sitemap-index.xml
+
+# Fichier de guidage LLM (standard émergent llms.txt)
+# Ce fichier explique aux IA l'objet du site et ses pages clés
+# Voir : https://astivio.fr/llms.txt

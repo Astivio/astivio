@@ -1,0 +1,366 @@
+---
+// Article 3 — AEO vs GEO vs SEO : guide définitif
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQ from '../../components/FAQ.astro';
+import { getBlogPostingSchema, getBreadcrumbSchema } from '../../data/schema';
+import type { FAQItem } from '../../data/faq';
+
+const postUrl  = 'https://astivio.fr/blog/aeo-geo-seo-guide-complet/';
+const datePubl = '2025-02-22';
+const dateMaj  = '2025-03-01';
+
+const schemas = [
+  getBlogPostingSchema({
+    title:         'AEO vs GEO vs SEO : le guide définitif pour les professionnels de santé',
+    description:   'Définitions claires de l\'AEO, du GEO et du SEO, leurs différences, leurs complémentarités, et comment les articuler pour un cabinet d\'ostéopathie en 2026.',
+    url:           postUrl,
+    datePublished: datePubl,
+    dateModified:  dateMaj,
+  }),
+  getBreadcrumbSchema([
+    { name: 'Accueil', url: 'https://astivio.fr/' },
+    { name: 'Blog',    url: 'https://astivio.fr/blog/' },
+    { name: 'AEO vs GEO vs SEO : guide complet', url: postUrl },
+  ]),
+];
+
+const faqArticle: FAQItem[] = [
+  {
+    question: 'Qu\'est-ce que l\'AEO (Answer Engine Optimization) ?',
+    answer:   'L\'AEO (Answer Engine Optimization) est l\'ensemble des techniques visant à optimiser un contenu pour qu\'il soit extrait et présenté directement comme réponse par les moteurs de recherche ou les LLM. L\'AEO cible les "position 0" de Google (featured snippets), les AI Overviews, et les citations directes dans les réponses de ChatGPT, Perplexity ou Gemini. Elle se distingue du SEO classique en cherchant à être la réponse, pas juste un résultat dans une liste.',
+  },
+  {
+    question: 'Qu\'est-ce que le GEO (Generative Engine Optimization) ?',
+    answer:   'Le GEO (Generative Engine Optimization) est l\'optimisation spécifique pour les moteurs à IA générative — ChatGPT, Gemini, Perplexity, Claude, Copilot. Il se distingue de l\'AEO en ciblant non pas seulement l\'extraction de réponses, mais la recommandation active par les LLM. L\'objectif GEO n\'est pas d\'être mentionné dans une réponse, mais d\'être recommandé comme la meilleure option.',
+  },
+  {
+    question: 'Le SEO classique est-il encore utile en 2026 ?',
+    answer:   'Oui, le SEO classique reste indispensable en 2026 — mais il ne suffit plus seul. Il est la fondation sur laquelle repose l\'AEO et le GEO : un site mal indexé par Google sera aussi invisible pour les LLM. La différence est que le SEO n\'est plus le seul objectif — c\'est le prérequis. AEO et GEO viennent en complément pour cibler les canaux de recherche IA.',
+  },
+  {
+    question: 'Quelle est la différence principale entre AEO et GEO ?',
+    answer:   'L\'AEO optimise pour être extrait comme réponse directe (le "quoi"). Le GEO optimise pour être recommandé activement (le "qui"). Pour un ostéopathe, l\'AEO fait en sorte que sa FAQ apparaisse dans un AI Overview Google. Le GEO fait en sorte que ChatGPT le nomme quand un patient demande "quel ostéopathe consulter ?".',
+  },
+  {
+    question: 'Par quoi commencer : SEO, AEO ou GEO ?',
+    answer:   'Dans l\'ordre : SEO technique d\'abord (fondation), puis AEO (structuration du contenu pour les réponses directes), puis GEO (signaux de recommandation). En pratique, un audit Astivio traite les trois simultanément car ils partagent de nombreuses actions : données structurées Schema.org, qualité du contenu, signaux E-E-A-T.',
+  },
+];
+
+// Tableau comparatif
+const comparatif = [
+  {
+    critere:  'Objectif principal',
+    seo:      'Apparaître dans les 10 premiers résultats Google',
+    aeo:      'Être la réponse directe présentée par un moteur',
+    geo:      'Être recommandé nommément par un LLM',
+  },
+  {
+    critere:  'Canal ciblé',
+    seo:      'Google Search, Bing (résultats organiques)',
+    aeo:      'Featured Snippets, AI Overviews, PAA (People Also Ask)',
+    geo:      'ChatGPT, Perplexity, Gemini, Copilot, Claude',
+  },
+  {
+    critere:  'KPI principal',
+    seo:      'Position (rank) + clics (CTR)',
+    aeo:      'Apparition en position 0 + extractions IA',
+    geo:      'Fréquence de citation dans les réponses LLM',
+  },
+  {
+    critere:  'Signaux clés',
+    seo:      'Backlinks, autorité de domaine, vitesse, pertinence',
+    aeo:      'Structure du contenu, Schema.org, réponses directes',
+    geo:      'E-E-A-T, réputation, citations tierces, données structurées',
+  },
+  {
+    critere:  'Délai de résultats',
+    seo:      '3 à 12 mois',
+    aeo:      '1 à 3 mois',
+    geo:      '3 à 9 mois (variable selon le LLM)',
+  },
+  {
+    critere:  'Mesure',
+    seo:      'Google Search Console, Google Analytics',
+    aeo:      'Apparitions featured snippets, AI Overviews',
+    geo:      'Requêtes de test LLM, monitoring de citations',
+  },
+];
+---
+
+<BaseLayout
+  title="AEO vs GEO vs SEO : guide définitif pour professionnels de santé | Astivio"
+  description="Définitions et comparatif d'AEO (Answer Engine Optimization), GEO (Generative Engine Optimization) et SEO classique. Application concrète pour les cabinets d'ostéopathie en 2026."
+  schema={schemas}
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-600 text-white py-16">
+    <div class="container-page">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+        <ol class="flex items-center gap-2 flex-wrap" role="list">
+          <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-current="page" class="text-white font-medium">Article</li>
+        </ol>
+      </nav>
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="badge-dark">Éducation</span>
+          <span class="text-brand-300 text-sm">11 min de lecture</span>
+        </div>
+        <h1 class="text-white mb-4">
+          AEO vs GEO vs SEO : le guide définitif pour les professionnels de santé
+        </h1>
+        <div class="flex items-center gap-4 text-sm text-brand-200">
+          <span>Par <a href="/a-propos" class="underline hover:text-white">[Prénom Nom]</a>, fondateur d'Astivio</span>
+          <span>·</span>
+          <time datetime={datePubl}>22 février 2025</time>
+          <span>·</span>
+          <span>Mis à jour le <time datetime={dateMaj}>1er mars 2025</time></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Corps -->
+  <article class="section bg-white">
+    <div class="container-page">
+      <div class="max-w-3xl mx-auto">
+
+        <!-- TL;DR -->
+        <div class="tldr mb-10">
+          <h2 class="text-sm font-bold text-emerald-700 uppercase tracking-wider mb-3">TL;DR</h2>
+          <ul class="space-y-2 text-sm text-slate-700 leading-relaxed">
+            <li><strong>SEO</strong> = optimiser pour apparaître dans une liste de liens Google. Toujours indispensable, c'est la fondation.</li>
+            <li><strong>AEO</strong> = optimiser pour être la réponse directe présentée par un moteur (featured snippet, AI Overview). Complémentaire au SEO.</li>
+            <li><strong>GEO</strong> = optimiser pour être recommandé nommément par un LLM (ChatGPT, Perplexity, Gemini…). C'est le niveau le plus exigeant, et le plus différenciant.</li>
+            <li>Les trois approches se renforcent mutuellement — les bonnes pratiques SEO améliorent l'AEO, les bonnes pratiques AEO améliorent le GEO.</li>
+          </ul>
+        </div>
+
+        <p class="text-slate-700 leading-relaxed mb-8">
+          En 2025, les ostéopathes entendent parler de SEO, AEO et GEO comme si ces trois
+          termes étaient interchangeables — ou, à l'opposé, comme si choisir l'un revenait
+          à rejeter les autres. La réalité est plus nuancée, et plus intéressante.
+          Ce guide clarifie chaque terme, explique leurs différences réelles, et montre
+          comment les articuler pour un cabinet d'ostéopathie.
+        </p>
+
+        <!-- SEO -->
+        <section aria-labelledby="seo-titre">
+          <h2 id="seo-titre" class="text-brand-600 mb-4">Le SEO : la fondation qui reste indispensable</h2>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            Le SEO (Search Engine Optimization) désigne l'ensemble des techniques permettant
+            d'améliorer la position d'un site web dans les résultats organiques des moteurs
+            de recherche — principalement Google. Il existe depuis la naissance des moteurs
+            de recherche dans les années 1990 et a évolué considérablement depuis.
+          </p>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            Pour un cabinet d'ostéopathie, le SEO classique vise à apparaître dans les
+            premiers résultats quand un patient tape « ostéopathe [ville] » ou
+            « ostéopathe douleurs lombaires [région] » dans la barre de recherche Google.
+          </p>
+          <div class="bg-slate-50 rounded-xl p-5 mb-6">
+            <p class="text-sm font-semibold text-slate-700 mb-3">Les piliers du SEO classique :</p>
+            <ul class="space-y-1.5">
+              {[
+                'Technique : vitesse de chargement, indexabilité, accessibilité',
+                'On-page : qualité du contenu, structure des titres, densité des mots-clés',
+                'Off-page : backlinks (liens entrants depuis d\'autres sites)',
+                'Local : Google Business Profile, citations NAP cohérentes',
+              ].map((item) => (
+                <li class="flex items-start gap-2 text-sm text-slate-600">
+                  <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-slate-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.707-4.707a1 1 0 111.414-1.414L8.414 12.172l7.879-7.879a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p class="text-slate-700 leading-relaxed">
+            <strong>Pourquoi le SEO seul ne suffit plus en 2026 :</strong>
+            Les AI Overviews de Google apparaissent sur ~50% des recherches et réduisent
+            le taux de clic sur les résultats organiques de 20 à 40% (SparkToro, 2024).
+            Plus le SEO classe bien une page, plus cette page est susceptible d'alimenter
+            les AI Overviews — mais ce sont les LLM qui choisissent ce qu'ils en extraient,
+            pas l'auteur de la page.
+          </p>
+        </section>
+
+        <!-- AEO -->
+        <section class="mt-10" aria-labelledby="aeo-titre">
+          <h2 id="aeo-titre" class="text-brand-600 mb-4">L'AEO : optimiser pour être la réponse</h2>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            L'AEO (Answer Engine Optimization) désigne les techniques qui permettent à un
+            contenu d'être présenté directement comme réponse par un moteur — sans que
+            l'utilisateur ait à cliquer sur un lien. En pratique, cela englobe :
+          </p>
+          <ul class="space-y-2 mb-6">
+            {[
+              'Les Featured Snippets Google (encadrés en position 0)',
+              'Les AI Overviews Google (résumés générés par Gemini en haut de page)',
+              'Les "People Also Ask" (questions connexes avec réponses)',
+              'Les réponses directes de Siri, Alexa, Google Assistant',
+            ].map((item) => (
+              <li class="flex items-start gap-2 text-sm text-slate-700">
+                <span class="text-emerald-500 mt-0.5">→</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            L'AEO s'obtient principalement via la structuration du contenu : questions/réponses
+            courtes et directes, données structurées Schema.org, TL;DR en tête de page,
+            phrases auto-suffisantes. C'est la discipline la plus proche du SEO classique —
+            elle en est une évolution naturelle.
+          </p>
+          <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-5">
+            <p class="text-sm font-semibold text-emerald-700 mb-2">Exemple AEO pour un ostéopathe :</p>
+            <p class="text-sm text-emerald-800">
+              Page de contenu bien structurée sur « Que traite un ostéopathe ? » avec une
+              liste claire et concise → apparaît en Featured Snippet Google sur cette requête
+              → 8% de CTR en plus que le résultat organique standard.
+            </p>
+          </div>
+        </section>
+
+        <!-- GEO -->
+        <section class="mt-10" aria-labelledby="geo-titre">
+          <h2 id="geo-titre" class="text-brand-600 mb-4">Le GEO : optimiser pour être recommandé</h2>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            Le GEO (Generative Engine Optimization) est le concept le plus récent et le
+            plus spécifique. Il désigne l'optimisation pour les moteurs à IA générative :
+            ChatGPT, Perplexity, Google Gemini (dans ses réponses directes), Microsoft
+            Copilot, et Claude (Anthropic).
+          </p>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            La différence fondamentale avec l'AEO : le GEO ne vise pas à être extrait
+            comme réponse à une question générale. Il vise à être <strong>recommandé nommément</strong>
+            quand un utilisateur pose une question personnalisée — « quel ostéopathe consulter
+            pour X à Y ? »
+          </p>
+          <p class="text-slate-700 leading-relaxed mb-6">
+            Les signaux GEO sont différents des signaux SEO ou AEO :
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            {[
+              { label: 'Signaux d\'autorité', desc: 'Mentions dans des sources reconnues (presse, annuaires officiels), volume de citations tierces' },
+              { label: 'Signaux E-E-A-T', desc: 'Expertise démontrée, crédentials identifiables, contenu signé et daté' },
+              { label: 'Cohérence des données', desc: 'NAP identiques sur tous les profils (site, GBP, Doctolib, annuaires)' },
+              { label: 'Volume et qualité des avis', desc: 'Avis récents, variés, avec réponses du praticien' },
+            ].map((item) => (
+              <div class="bg-brand-50 rounded-xl p-4">
+                <p class="text-sm font-semibold text-brand-600 mb-1">{item.label}</p>
+                <p class="text-xs text-slate-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Tableau comparatif -->
+        <section class="mt-10" aria-labelledby="comparatif-titre">
+          <h2 id="comparatif-titre" class="text-brand-600 mb-6">Tableau comparatif AEO / GEO / SEO</h2>
+          <div class="overflow-x-auto rounded-xl border border-slate-200">
+            <table class="w-full text-sm">
+              <thead class="bg-brand-600 text-white">
+                <tr>
+                  <th class="text-left px-4 py-3 font-semibold">Critère</th>
+                  <th class="text-left px-4 py-3 font-semibold">SEO</th>
+                  <th class="text-left px-4 py-3 font-semibold">AEO</th>
+                  <th class="text-left px-4 py-3 font-semibold">GEO</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparatif.map((row, i) => (
+                  <tr class:list={['border-b border-slate-100', i % 2 === 0 ? 'bg-white' : 'bg-slate-50']}>
+                    <td class="px-4 py-3 font-medium text-slate-700">{row.critere}</td>
+                    <td class="px-4 py-3 text-slate-600">{row.seo}</td>
+                    <td class="px-4 py-3 text-slate-600">{row.aeo}</td>
+                    <td class="px-4 py-3 text-slate-600">{row.geo}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Synthèse -->
+        <section class="mt-10" aria-labelledby="synthese-titre">
+          <h2 id="synthese-titre" class="text-brand-600 mb-4">
+            Comment articuler les trois pour un cabinet d'ostéopathie
+          </h2>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            La bonne métaphore : le SEO construit la route, l'AEO installe les panneaux
+            indicateurs, le GEO fait que votre cabinet est le GPS qui recommande votre route.
+            Les trois sont complémentaires — et l'ordre d'implémentation a son importance.
+          </p>
+          <ol class="space-y-4">
+            {[
+              { step: '1ère priorité : Fondations SEO', desc: 'Site techniquement sain, vitesse correcte, contenu de base. Sans ça, rien d\'autre ne fonctionne — les LLM s\'appuient sur les crawls Google.' },
+              { step: '2ème priorité : AEO', desc: 'Données structurées Schema.org, FAQ structurées, TL;DR, HTML sémantique. Ces éléments améliorent simultanément le SEO et posent les bases du GEO.' },
+              { step: '3ème priorité : GEO', desc: 'Signaux E-E-A-T, réputation multi-plateforme, citations tierces, monitoring des LLM. C\'est la couche la plus exigeante et la plus différenciante.' },
+            ].map((item) => (
+              <li class="flex gap-4">
+                <div class="w-2 flex-shrink-0 bg-emerald-500 rounded-full mt-1"></div>
+                <div>
+                  <p class="font-semibold text-brand-600 mb-1">{item.step}</p>
+                  <p class="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="mt-10 pt-8 border-t border-slate-100">
+          <h2 class="text-brand-600 mb-4">Conclusion</h2>
+          <p class="text-slate-700 leading-relaxed mb-4">
+            AEO, GEO, SEO : trois acronymes pour une réalité simple. La façon dont vos
+            futurs patients vous trouvent est en train de changer fondamentalement.
+            Les praticiens qui comprennent ce changement et l'anticipent maintenant
+            prendront une avance significative sur ceux qui l'ignoreront jusqu'à ce
+            que la concurrence les force à réagir.
+          </p>
+          <p class="text-slate-700 leading-relaxed">
+            La bonne nouvelle : vous n'avez pas à maîtriser toute la complexité technique
+            pour commencer. La première étape est toujours la même :
+            <strong>mesurer où vous en êtes</strong>.
+          </p>
+        </section>
+
+        <!-- Méta E-E-A-T -->
+        <footer class="pt-8 border-t border-slate-100 text-xs text-slate-400 mt-8">
+          <p>
+            Article rédigé par <a href="/a-propos" class="underline">[Prénom Nom]</a>,
+            fondateur d'Astivio. Publié le 22 février 2025 · Mis à jour le 1er mars 2025.
+          </p>
+          <p class="mt-1">
+            Sources : SparkToro AEO study (2024), Google Search Central documentation,
+            Perplexity Engineering Blog (2024), OpenAI product documentation (2025).
+          </p>
+        </footer>
+      </div>
+    </div>
+  </article>
+
+  <!-- FAQ -->
+  <FAQ
+    items={faqArticle}
+    title="Questions sur l'AEO, le GEO et le SEO"
+    withSchema={true}
+  />
+
+  <CTABlock
+    title="Prêt à combiner SEO, AEO et GEO pour votre cabinet ?"
+    subtitle="L'audit gratuit dresse un bilan sur les trois dimensions et identifie les actions les plus impactantes pour votre situation spécifique."
+    cta="Réserver l'audit gratuit"
+    ctaHref="/contact"
+    secondary={{ label: 'Découvrir nos offres', href: '/offres' }}
+  />
+
+</BaseLayout>

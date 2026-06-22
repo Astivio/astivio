@@ -1,0 +1,110 @@
+---
+// BaseLayout.astro — Layout global utilisé par toutes les pages
+// AEO/GEO : ce layout injecte sur chaque page :
+//   • Les métadonnées complètes (title, description, OG, Twitter Cards)
+//   • Le JSON-LD Organization de base (présence sur toutes les pages)
+//   • Le JSON-LD supplémentaire passé par chaque page (FAQPage, BreadcrumbList, etc.)
+//   • Les balises canoniques pour éviter le contenu dupliqué
+//   • Le preconnect Google Fonts pour la performance
+
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { organizationSchema } from '../data/schema';
+
+interface Props {
+  title:         string;
+  description:   string;
+  canonical?:    string;
+  ogImage?:      string;
+  schema?:       object | object[]; // JSON-LD supplémentaire
+  noindex?:      boolean;
+}
+
+const {
+  title,
+  description,
+  canonical  = Astro.url.href,
+  ogImage    = 'https://astivio.fr/og-default.png',
+  schema,
+  noindex    = false,
+} = Astro.props;
+
+// Titre enrichi pour les onglets et les snippets de recherche
+const fullTitle = title.includes('Astivio') ? title : `${title} | Astivio`;
+
+// Schemas à sérialiser : Organization toujours présent + schéma de page
+const schemas: object[] = [
+  organizationSchema,
+  ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),
+];
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ── Titre & Description ── -->
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- ── Canonical ── -->
+  <!-- AEO/GEO : la balise canonical évite que les crawlers IA indexent
+       des URL dupliquées (avec/sans trailing slash, paramètres UTM, etc.) -->
+  <link rel="canonical" href={canonical} />
+
+  <!-- ── Open Graph (réseaux sociaux + citations enrichies) ── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content={canonical} />
+  <meta property="og:title"       content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image"       content={ogImage} />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:site_name"   content="Astivio" />
+
+  <!-- ── Twitter / X Cards ── -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image"       content={ogImage} />
+
+  <!-- ── Favicon ── -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- ── Fonts — Google Fonts Inter ── -->
+  <!-- preconnect réduit la latence de chargement de la police -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  />
+
+  <!-- ── Sitemap ── -->
+  <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <!-- ── JSON-LD (données structurées Schema.org) ── -->
+  <!-- AEO/GEO : le JSON-LD est la méthode privilégiée par Google et les LLM
+       pour comprendre la sémantique d'une page. Chaque page injecte
+       son propre schéma en plus de l'Organisation de base. -->
+  {schemas.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s, null, 0)} />
+  ))}
+
+  <!-- Slot pour du contenu <head> supplémentaire par page -->
+  <slot name="head" />
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <Nav />
+
+  <main id="contenu-principal">
+    <slot />
+  </main>
+
+  <Footer />
+</body>
+</html>

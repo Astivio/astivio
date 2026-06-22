@@ -1,0 +1,110 @@
+---
+// FAQ.astro — Composant FAQ réutilisable avec Schema.org FAQPage intégré
+// AEO/GEO : les FAQ structurées sont le type de contenu le plus souvent
+// extrait et cité par les LLM. Chaque paire Q/R doit être auto-suffisante.
+
+import type { FAQItem } from '../data/faq';
+import { getFAQSchema } from '../data/schema';
+
+interface Props {
+  items:       FAQItem[];
+  title?:      string;
+  subtitle?:   string;
+  withSchema?: boolean;  // Injecter le JSON-LD FAQPage
+  dark?:       boolean;  // Fond sombre
+}
+
+const {
+  items,
+  title    = 'Questions fréquentes',
+  subtitle,
+  withSchema = true,
+  dark = false,
+} = Astro.props;
+
+const schema = withSchema ? getFAQSchema(items) : null;
+---
+
+<section class:list={['section', dark ? 'bg-brand-800 text-white' : 'bg-slate-50']}>
+  <div class="container-page">
+
+    <!-- En-tête -->
+    <div class="text-center mb-12">
+      <h2 class:list={['mb-4', dark ? 'text-white' : 'text-brand-600']}>
+        {title}
+      </h2>
+      {subtitle && (
+        <p class:list={['text-lg max-w-2xl mx-auto', dark ? 'text-slate-300' : 'text-slate-600']}>
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    <!-- Liste des questions -->
+    <!-- Implémentée comme <details>/<summary> : accessible clavier,
+         sans JS, et le contenu est présent dans le HTML (indexable par les IA) -->
+    <div class="max-w-3xl mx-auto space-y-3">
+      {items.map((item, index) => (
+        <details
+          class:list={[
+            'group rounded-xl border overflow-hidden transition-all',
+            dark
+              ? 'border-brand-700 bg-brand-700/50'
+              : 'border-slate-200 bg-white shadow-sm',
+          ]}
+        >
+          <summary
+            class:list={[
+              'flex items-center justify-between gap-4 px-6 py-5',
+              'cursor-pointer list-none font-medium text-base',
+              'hover:opacity-80 transition-opacity',
+              dark ? 'text-white' : 'text-brand-600',
+            ]}
+            aria-expanded="false"
+          >
+            <!-- AEO/GEO : la question est la balise visible par les crawlers -->
+            <span>{item.question}</span>
+            <!-- Chevron animé -->
+            <svg
+              class="w-5 h-5 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+
+          <!-- Réponse — contenu dans le DOM, indexable par les LLM -->
+          <div
+            class:list={[
+              'px-6 pb-6 text-sm leading-relaxed',
+              dark ? 'text-slate-300' : 'text-slate-600',
+            ]}
+          >
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- CTA sous la FAQ -->
+    <div class="text-center mt-10">
+      <p class:list={['text-sm mb-4', dark ? 'text-slate-400' : 'text-slate-500']}>
+        Vous avez d'autres questions ?
+      </p>
+      <a
+        href="/contact"
+        class:list={[
+          dark ? 'btn-secondary' : 'btn-outline',
+        ]}
+      >
+        Parlons de votre situation →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- JSON-LD FAQPage — injecté si withSchema=true -->
+{schema && (
+  <script type="application/ld+json" set:html={JSON.stringify(schema, null, 0)} />
+)}

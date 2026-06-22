@@ -1,0 +1,102 @@
+---
+// Footer.astro — Pied de page avec liens, légaux et signaux E-E-A-T
+const year = new Date().getFullYear();
+
+const cols = [
+  {
+    title: 'Services',
+    links: [
+      { href: '/offres#audit',       label: 'Audit AEO/GEO'         },
+      { href: '/offres#optimisation', label: 'Optimisation complète' },
+      { href: '/offres#pilotage',    label: 'Pilotage continu'       },
+      { href: '/methode',            label: 'Notre méthode'          },
+    ],
+  },
+  {
+    title: 'Ressources',
+    links: [
+      { href: '/blog',              label: 'Blog'               },
+      { href: '/etudes-de-cas',     label: 'Études de cas'      },
+      { href: '/blog/aeo-geo-seo-guide-complet', label: 'Guide AEO vs GEO vs SEO' },
+      { href: '/blog/etre-cite-par-chatgpt-en-2026', label: 'Être cité par ChatGPT' },
+    ],
+  },
+  {
+    title: 'Agence',
+    links: [
+      { href: '/a-propos', label: 'À propos'                 },
+      { href: '/contact',  label: 'Contact'                  },
+      { href: '/contact',  label: 'Réserver un audit gratuit'},
+      { href: '/llms.txt', label: 'llms.txt'                 },
+    ],
+  },
+];
+---
+
+<footer class="bg-brand-900 text-slate-300">
+  <div class="container-page py-16">
+
+    <!-- Logo + tagline -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+      <div class="md:col-span-1">
+        <a href="/" class="inline-flex items-center gap-2 group mb-4">
+          <svg width="32" height="32" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <circle cx="32" cy="32" r="32" fill="#2B5299"/>
+            <path d="M18 46 L32 14 L46 46" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="23" y1="34" x2="41" y2="34" stroke="#10B981" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+          <span class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+            Astivio
+          </span>
+        </a>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          L'agence AEO/GEO spécialisée pour les ostéopathes. Nous optimisons votre visibilité sur ChatGPT, Perplexity, Gemini et Copilot.
+        </p>
+        <!-- Signal E-E-A-T : spécialisation et crédibilité -->
+        <div class="mt-4 space-y-1 text-xs text-slate-500">
+          <p>🇫🇷 Agence française</p>
+          <p>📧 <a href="mailto:contact@astivio.fr" class="hover:text-emerald-400 transition-colors">contact@astivio.fr</a></p>
+        </div>
+      </div>
+
+      <!-- Colonnes de liens -->
+      {cols.map((col) => (
+        <div>
+          <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            {col.title}
+          </h3>
+          <ul class="space-y-2" role="list">
+            {col.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm text-slate-400 hover:text-emerald-400 transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Séparateur -->
+    <div class="border-t border-brand-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-slate-500">
+        © {year} Astivio. Tous droits réservés.
+      </p>
+      <div class="flex items-center gap-6 text-xs text-slate-500">
+        <a href="/mentions-legales" class="hover:text-slate-300 transition-colors">Mentions légales</a>
+        <a href="/politique-confidentialite" class="hover:text-slate-300 transition-colors">Confidentialité</a>
+        <a href="/sitemap-index.xml" class="hover:text-slate-300 transition-colors">Sitemap</a>
+      </div>
+    </div>
+
+    <!-- Note AEO/GEO (signal de transparence et d'expertise) -->
+    <p class="mt-6 text-center text-xs text-slate-600">
+      Ce site est lui-même optimisé AEO/GEO : données structurées Schema.org, llms.txt, HTML sémantique, signaux E-E-A-T.
+      C'est notre meilleure carte de visite.
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,180 @@
+---
+// offres.astro — Page Offres & Tarifs
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQ from '../components/FAQ.astro';
+import CTABlock from '../components/CTABlock.astro';
+import PricingCard from '../components/PricingCard.astro';
+import { offres, compareFeatures } from '../data/offres';
+import { faqTarifs } from '../data/faq';
+import { getBreadcrumbSchema } from '../data/schema';
+
+const breadcrumb = getBreadcrumbSchema([
+  { name: 'Accueil', url: 'https://astivio.fr/' },
+  { name: 'Offres & Tarifs', url: 'https://astivio.fr/offres/' },
+]);
+---
+
+<BaseLayout
+  title="Offres & Tarifs AEO/GEO pour ostéopathes | Astivio"
+  description="Trois formules d'optimisation AEO/GEO pour votre cabinet d'ostéopathie : Audit ponctuel (490 €), Optimisation complète (1 290 € + 89 €/mois), Pilotage continu (2 490 €/mois). Tarifs transparents, sans garantie de placement."
+  schema={breadcrumb}
+>
+
+  <!-- Hero page -->
+  <section class="bg-brand-600 text-white py-20">
+    <div class="container-page">
+      <!-- Fil d'Ariane -->
+      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+        <ol class="flex items-center gap-2" role="list">
+          <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
+          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-current="page" class="text-white font-medium">Offres & Tarifs</li>
+        </ol>
+      </nav>
+
+      <div class="max-w-3xl">
+        <span class="badge-dark mb-4">Tarifs 2025</span>
+        <h1 class="text-white mb-4">Offres & Tarifs</h1>
+        <p class="text-xl text-brand-100 leading-relaxed">
+          Des formules claires, des prix affichés, zéro promesse mensongère.
+          Nous optimisons les facteurs de probabilité d'apparaître dans les réponses IA —
+          avec toute la transparence que vous méritez.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TL;DR -->
+  <section class="bg-white py-10">
+    <div class="container-page">
+      <div class="tldr max-w-3xl mx-auto">
+        <h2 class="text-sm font-bold text-emerald-700 uppercase tracking-wider mb-3">Résumé</h2>
+        <p class="text-sm text-slate-700 leading-relaxed">
+          Astivio propose trois niveaux d'accompagnement AEO/GEO pour les cabinets d'ostéopathie.
+          <strong>L'Audit (490 €, ponctuel)</strong> est le diagnostic de départ.
+          <strong>L'Optimisation complète (1 290 € + 89 €/mois)</strong> est la formule principale recommandée,
+          qui inclut l'implémentation et le suivi.
+          <strong>Le Pilotage continu (2 490 €/mois)</strong> est la formule premium pour
+          dominer durablement sur tous les moteurs IA.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cartes tarifaires -->
+  <section id="formules" class="section bg-slate-50">
+    <div class="container-page">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        {offres.map((offre) => (
+          <div id={offre.id}>
+            <PricingCard offre={offre} />
+          </div>
+        ))}
+      </div>
+
+      <!-- Note de transparence -->
+      <div class="mt-10 p-6 bg-amber-50 border border-amber-200 rounded-xl max-w-2xl mx-auto">
+        <h3 class="text-sm font-bold text-amber-800 mb-2">
+          ⚠️ Transparence sur les garanties
+        </h3>
+        <p class="text-sm text-amber-700 leading-relaxed">
+          Aucune agence ne peut garantir un placement dans les réponses de ChatGPT, Claude, Perplexity
+          ou Google Gemini. Les algorithmes des LLM sont propriétaires et évoluent constamment.
+          Ce qu'Astivio garantit : l'optimisation rigoureuse de tous les facteurs de probabilité
+          identifiés. Méfiez-vous de tout prestataire qui vous promet autrement.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tableau comparatif -->
+  <section class="section bg-white" aria-labelledby="comparatif-titre">
+    <div class="container-page">
+      <h2 id="comparatif-titre" class="text-brand-600 text-center mb-10">
+        Comparatif des formules
+      </h2>
+
+      <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+        <table class="w-full text-sm">
+          <thead class="bg-brand-600 text-white">
+            <tr>
+              <th class="text-left px-6 py-4 font-semibold">Fonctionnalité</th>
+              <th class="text-center px-4 py-4 font-semibold">Audit</th>
+              <th class="text-center px-4 py-4 font-semibold bg-emerald-600">Optimisation</th>
+              <th class="text-center px-4 py-4 font-semibold">Pilotage</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareFeatures.map((row, i) => (
+              <tr class:list={['border-b border-slate-100', i % 2 === 0 ? 'bg-white' : 'bg-slate-50']}>
+                <td class="px-6 py-3.5 text-slate-700 font-medium">{row.feature}</td>
+                <td class="px-4 py-3.5 text-center">
+                  {row.audit === true
+                    ? <span class="text-emerald-500" aria-label="Inclus">✓</span>
+                    : row.audit === false
+                      ? <span class="text-slate-300" aria-label="Non inclus">—</span>
+                      : <span class="text-slate-700 text-xs font-medium">{row.audit}</span>
+                  }
+                </td>
+                <td class="px-4 py-3.5 text-center bg-emerald-50">
+                  {row.opti === true
+                    ? <span class="text-emerald-500 font-bold" aria-label="Inclus">✓</span>
+                    : row.opti === false
+                      ? <span class="text-slate-300" aria-label="Non inclus">—</span>
+                      : <span class="text-emerald-700 text-xs font-semibold">{row.opti}</span>
+                  }
+                </td>
+                <td class="px-4 py-3.5 text-center">
+                  {row.pilotage === true
+                    ? <span class="text-emerald-500" aria-label="Inclus">✓</span>
+                    : row.pilotage === false
+                      ? <span class="text-slate-300" aria-label="Non inclus">—</span>
+                      : <span class="text-slate-700 text-xs font-medium">{row.pilotage}</span>
+                  }
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot class="bg-slate-50 border-t-2 border-slate-200">
+            <tr>
+              <td class="px-6 py-4 font-bold text-brand-600">Tarif</td>
+              <td class="px-4 py-4 text-center font-bold text-brand-600">490 €</td>
+              <td class="px-4 py-4 text-center font-bold text-emerald-600 bg-emerald-50">
+                1 290 €<br/><span class="text-xs font-normal">+ 89 €/mois</span>
+              </td>
+              <td class="px-4 py-4 text-center font-bold text-brand-600">2 490 €/mois</td>
+            </tr>
+            <tr>
+              <td class="px-6 pb-4"></td>
+              <td class="px-4 pb-4 text-center">
+                <a href="/contact" class="text-xs text-brand-600 underline hover:text-brand-500">Réserver</a>
+              </td>
+              <td class="px-4 pb-4 text-center bg-emerald-50">
+                <a href="/contact" class="text-xs font-bold text-emerald-700 underline hover:text-emerald-600">Choisir cette formule</a>
+              </td>
+              <td class="px-4 pb-4 text-center">
+                <a href="/contact" class="text-xs text-brand-600 underline hover:text-brand-500">Nous contacter</a>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Tarifs -->
+  <FAQ
+    items={faqTarifs}
+    title="Questions sur les tarifs et les formules"
+    withSchema={true}
+  />
+
+  <CTABlock
+    title="Commencez par l'essentiel : un audit gratuit"
+    subtitle="30 minutes pour savoir où vous en êtes sur ChatGPT, Perplexity et Gemini. Sans engagement, sans obligation de suite."
+    cta="Réserver l'audit gratuit"
+    ctaHref="/contact"
+    dark={true}
+  />
+
+</BaseLayout>
