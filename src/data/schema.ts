@@ -65,7 +65,7 @@ export function getFAQSchema(items: FAQItem[]) {
 export const founderSchema = {
   '@context':   'https://schema.org',
   '@type':      'Person',
-  name:          '[Prénom Nom]',
+  name:          'Hugo',
   jobTitle:      'Fondateur & Expert AEO/GEO',
   worksFor: {
     '@type': 'Organization',
@@ -98,7 +98,7 @@ export function getBlogPostingSchema(post: {
     image:            post.image ?? 'https://astivio.fr/og-default.png',
     author: {
       '@type': 'Person',
-      name:    '[Prénom Nom]',
+      name:    'Hugo',
       url:     'https://astivio.fr/a-propos',
     },
     publisher: {
