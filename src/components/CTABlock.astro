@@ -20,13 +20,13 @@ const {
 } = Astro.props;
 ---
 
-<section class:list={['section', dark ? 'bg-brand-600' : 'bg-emerald-50']}>
+<section class:list={['section', dark ? 'bg-brand-dark' : 'bg-emerald-50']}>
   <div class="container-page text-center">
-    <h2 class:list={['mb-4', dark ? 'text-white' : 'text-brand-600']}>
+    <h2 class:list={['mb-4', dark ? 'text-white' : 'text-brand-dark']}>
       {title}
     </h2>
     {subtitle && (
-      <p class:list={['text-lg max-w-2xl mx-auto mb-8', dark ? 'text-brand-100' : 'text-slate-600']}>
+      <p class:list={['text-lg max-w-2xl mx-auto mb-8', dark ? 'text-slate-200' : 'text-slate-600']}>
         {subtitle}
       </p>
     )}
@@ -39,7 +39,7 @@ const {
           href={secondary.href}
           class:list={[
             'text-sm font-medium transition-colors',
-            dark ? 'text-brand-100 hover:text-white' : 'text-slate-600 hover:text-brand-600',
+            dark ? 'text-slate-200 hover:text-white' : 'text-slate-600 hover:text-brand-dark',
           ]}
         >
           {secondary.label}
@@ -47,7 +47,7 @@ const {
       )}
     </div>
     <!-- Micro-signal de réassurance -->
-    <p class:list={['mt-6 text-xs', dark ? 'text-brand-200' : 'text-slate-500']}>
+    <p class:list={['mt-6 text-xs', dark ? 'text-slate-300' : 'text-slate-500']}>
       ✓ Sans engagement &nbsp;·&nbsp; ✓ Réponse sous 24h &nbsp;·&nbsp; ✓ Spécialiste ostéopathie
     </p>
   </div>

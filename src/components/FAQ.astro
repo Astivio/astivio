@@ -25,12 +25,12 @@ const {
 const schema = withSchema ? getFAQSchema(items) : null;
 ---
 
-<section class:list={['section', dark ? 'bg-brand-800 text-white' : 'bg-slate-50']}>
+<section class:list={['section', dark ? 'bg-brand-dark text-white' : 'bg-slate-50']}>
   <div class="container-page">
 
     <!-- En-tête -->
     <div class="text-center mb-12">
-      <h2 class:list={['mb-4', dark ? 'text-white' : 'text-brand-600']}>
+      <h2 class:list={['mb-4', dark ? 'text-white' : 'text-brand-dark']}>
         {title}
       </h2>
       {subtitle && (
@@ -49,7 +49,7 @@ const schema = withSchema ? getFAQSchema(items) : null;
           class:list={[
             'group rounded-xl border overflow-hidden transition-all',
             dark
-              ? 'border-brand-700 bg-brand-700/50'
+              ? 'border-brand-medium bg-brand-medium/50'
               : 'border-slate-200 bg-white shadow-sm',
           ]}
         >
@@ -58,7 +58,7 @@ const schema = withSchema ? getFAQSchema(items) : null;
               'flex items-center justify-between gap-4 px-6 py-5',
               'cursor-pointer list-none font-medium text-base',
               'hover:opacity-80 transition-opacity',
-              dark ? 'text-white' : 'text-brand-600',
+              dark ? 'text-white' : 'text-brand-dark',
             ]}
             aria-expanded="false"
           >

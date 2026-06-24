@@ -4,20 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Palette Astivio — bleu ardoise profond : crédibilité, expertise, santé
         brand: {
-          50:  '#EEF2F9',
-          100: '#C5D3E8',
-          200: '#9BB5D1',
-          300: '#7297BA',
-          400: '#4879A3',
-          500: '#2B5299',
-          600: '#1E3A5F', // Couleur primaire principale
-          700: '#162C4A',
-          800: '#0F1F35',
-          900: '#071220',
+          dark:   '#0e1d2d', // Principal — header, textes, fonds sombres
+          medium: '#1A3248', // Secondaire — hover, bordures, bandeau stats
+          accent: '#10B981', // Accent — idem emerald-500, CTA et badges
         },
-        // emerald-500 (#10B981) est l'accent — déjà dans Tailwind, utilisé via emerald-*
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

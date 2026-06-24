@@ -142,26 +142,26 @@ const leviers = [
 >
 
   <!-- Hero -->
-  <section class="bg-brand-600 text-white py-16">
+  <section class="bg-brand-dark text-white py-16">
     <div class="container-page">
-      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-slate-300 mb-8">
         <ol class="flex items-center gap-2 flex-wrap" role="list">
           <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
-          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-hidden="true" class="text-slate-400">/</li>
           <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
-          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-hidden="true" class="text-slate-400">/</li>
           <li aria-current="page" class="text-white font-medium">Article</li>
         </ol>
       </nav>
       <div class="max-w-3xl">
         <div class="flex items-center gap-3 mb-4">
           <span class="badge-dark">Guide pratique</span>
-          <span class="text-brand-300 text-sm">9 min de lecture</span>
+          <span class="text-slate-300 text-sm">9 min de lecture</span>
         </div>
         <h1 class="text-white mb-4">
           Comment être cité par ChatGPT en 2026 : le guide de l'ostéopathe
         </h1>
-        <div class="flex items-center gap-4 text-sm text-brand-200">
+        <div class="flex items-center gap-4 text-sm text-slate-300">
           <span>Par <a href="/a-propos" class="underline hover:text-white">Hugo</a>, fondateur d'Astivio</span>
           <span>·</span>
           <time datetime={datePubl}>8 février 2025</time>
@@ -199,7 +199,7 @@ const leviers = [
         <div class="space-y-12">
           {leviers.map((levier) => (
             <section class="border-l-4 border-emerald-500 pl-6" aria-labelledby={`levier-${levier.num}`}>
-              <h2 id={`levier-${levier.num}`} class="text-brand-600 flex items-center gap-3 mb-3">
+              <h2 id={`levier-${levier.num}`} class="text-brand-dark flex items-center gap-3 mb-3">
                 <span class="bg-emerald-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">
                   {levier.num}
                 </span>
@@ -231,7 +231,7 @@ const leviers = [
 
         <!-- Conclusion -->
         <section class="mt-12 pt-8 border-t border-slate-100">
-          <h2 class="text-brand-600 mb-4">Par où commencer ?</h2>
+          <h2 class="text-brand-dark mb-4">Par où commencer ?</h2>
           <p class="text-slate-700 leading-relaxed mb-4">
             Si vous deviez ne faire qu'une seule chose aujourd'hui : <strong>testez votre
             présence actuelle</strong>. Ouvrez Perplexity, ChatGPT et Google (avec AI Overview

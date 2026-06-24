@@ -94,11 +94,11 @@ const featuredPosts = [
        HERO
        AEO/GEO : H1 unique, promesse claire, phrase auto-suffisante
   ══════════════════════════════════════════════════════ -->
-  <section class="bg-brand-600 text-white py-24 md:py-32 relative overflow-hidden">
+  <section class="bg-brand-dark text-white py-24 md:py-32 relative overflow-hidden">
     <!-- Arrière-plan décoratif subtil -->
     <div class="absolute inset-0 opacity-5" aria-hidden="true">
       <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-400 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-      <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-400 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-medium rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
     </div>
 
     <div class="container-page relative z-10">
@@ -116,7 +116,7 @@ const featuredPosts = [
         </h1>
 
         <!-- Sous-titre explicatif -->
-        <p class="text-xl text-brand-100 mb-10 max-w-2xl leading-relaxed">
+        <p class="text-xl text-slate-200 mb-10 max-w-2xl leading-relaxed">
           Vos futurs patients cherchent maintenant un ostéopathe via ChatGPT, Perplexity
           ou les AI Overviews de Google. Astivio optimise tous les signaux qui influencent
           ces recommandations — pour que votre cabinet apparaisse, pas celui d'un confrère.
@@ -133,7 +133,7 @@ const featuredPosts = [
         </div>
 
         <!-- Signaux de réassurance -->
-        <div class="flex flex-wrap gap-6 text-sm text-brand-200">
+        <div class="flex flex-wrap gap-6 text-sm text-slate-300">
           <span class="flex items-center gap-1.5">
             <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.707-4.707a1 1 0 111.414-1.414L8.414 12.172l7.879-7.879a1 1 0 011.414 0z" clip-rule="evenodd"/>
@@ -161,13 +161,13 @@ const featuredPosts = [
        BARRE DE STATISTIQUES
        AEO/GEO : données chiffrées sourcées = signal E-E-A-T fort
   ══════════════════════════════════════════════════════ -->
-  <section class="bg-brand-700 py-10" aria-label="Chiffres clés">
+  <section class="bg-brand-medium py-10" aria-label="Chiffres clés">
     <div class="container-page">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((stat) => (
           <div class="stat-block">
             <span class="text-3xl md:text-4xl font-bold text-emerald-400 block">{stat.number}</span>
-            <span class="text-xs text-brand-200 mt-2 block leading-snug">{stat.label}</span>
+            <span class="text-xs text-slate-300 mt-2 block leading-snug">{stat.label}</span>
           </div>
         ))}
       </div>
@@ -209,7 +209,7 @@ const featuredPosts = [
           <div class="mb-4">
             <span class="badge">Le contexte</span>
           </div>
-          <h2 id="probleme-titre" class="text-brand-600 mb-6">
+          <h2 id="probleme-titre" class="text-brand-dark mb-6">
             La recherche ne se fait plus comme avant
           </h2>
           <div class="space-y-4 text-slate-600 leading-relaxed">
@@ -244,8 +244,8 @@ const featuredPosts = [
               <span class="font-medium text-slate-800">Patient :</span>
               « Quel ostéopathe consulter à Bordeaux pour des douleurs lombaires ? »
             </div>
-            <div class="bg-brand-50 rounded-xl rounded-tr-none px-4 py-3 text-sm text-slate-600">
-              <span class="font-medium text-brand-600">ChatGPT :</span>
+            <div class="bg-slate-50 rounded-xl rounded-tr-none px-4 py-3 text-sm text-slate-600">
+              <span class="font-medium text-brand-dark">ChatGPT :</span>
               « Je recommande <span class="font-semibold text-emerald-600"><em>Dr. Sophie Martin</em></span>,
               ostéopathe à Bordeaux, reconnue pour la prise en charge des douleurs lombaires.
               Son cabinet propose... »
@@ -266,7 +266,7 @@ const featuredPosts = [
     <div class="container-page">
       <div class="text-center mb-14">
         <span class="badge mb-4">La solution</span>
-        <h2 id="solution-titre" class="text-brand-600 mb-4">
+        <h2 id="solution-titre" class="text-brand-dark mb-4">
           AEO + GEO + Fondations SEO
         </h2>
         <p class="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -283,7 +283,7 @@ const featuredPosts = [
               <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h3 class="text-brand-600 mb-2">AEO</h3>
+          <h3 class="text-brand-dark mb-2">AEO</h3>
           <p class="text-sm font-medium text-emerald-600 mb-3">Answer Engine Optimization</p>
           <p class="text-sm text-slate-600 leading-relaxed">
             Structurer votre contenu pour que les IA l'extraient directement comme réponse.
@@ -292,14 +292,14 @@ const featuredPosts = [
         </article>
 
         <!-- GEO -->
-        <article class="card border-t-4 border-brand-600">
-          <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <article class="card border-t-4 border-brand-dark">
+          <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-brand-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
             </svg>
           </div>
-          <h3 class="text-brand-600 mb-2">GEO</h3>
-          <p class="text-sm font-medium text-brand-500 mb-3">Generative Engine Optimization</p>
+          <h3 class="text-brand-dark mb-2">GEO</h3>
+          <p class="text-sm font-medium text-brand-medium mb-3">Generative Engine Optimization</p>
           <p class="text-sm text-slate-600 leading-relaxed">
             Construire les signaux d'autorité et de crédibilité qui poussent les LLM
             à vous <em>recommander</em> — pas juste vous mentionner. Réputation, E-E-A-T,
@@ -314,7 +314,7 @@ const featuredPosts = [
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
           </div>
-          <h3 class="text-brand-600 mb-2">SEO Technique</h3>
+          <h3 class="text-brand-dark mb-2">SEO Technique</h3>
           <p class="text-sm font-medium text-slate-500 mb-3">Fondations indispensables</p>
           <p class="text-sm text-slate-600 leading-relaxed">
             Les LLM s'appuient sur les crawls de Google et de Common Crawl. Un site
@@ -333,7 +333,7 @@ const featuredPosts = [
     <div class="container-page">
       <div class="text-center mb-14">
         <span class="badge mb-4">Notre processus</span>
-        <h2 id="processus-titre" class="text-brand-600 mb-4">
+        <h2 id="processus-titre" class="text-brand-dark mb-4">
           De l'invisible au recommandé : comment ça marche
         </h2>
         <p class="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -344,13 +344,13 @@ const featuredPosts = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
         {etapes.map((etape, i) => (
           <article class="card relative">
-            <div class="text-5xl font-black text-brand-50 absolute top-4 right-4" aria-hidden="true">
+            <div class="text-5xl font-black text-slate-50 absolute top-4 right-4" aria-hidden="true">
               {etape.num}
             </div>
             <div class="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center text-white font-bold text-sm mb-4">
               {i + 1}
             </div>
-            <h3 class="text-brand-600 mb-3">{etape.title}</h3>
+            <h3 class="text-brand-dark mb-3">{etape.title}</h3>
             <p class="text-sm text-slate-600 leading-relaxed">{etape.desc}</p>
           </article>
         ))}
@@ -365,7 +365,7 @@ const featuredPosts = [
     <div class="container-page">
       <div class="text-center mb-14">
         <span class="badge mb-4">Résultats</span>
-        <h2 id="resultats-titre" class="text-brand-600 mb-4">
+        <h2 id="resultats-titre" class="text-brand-dark mb-4">
           Ce que nos clients obtiennent
         </h2>
         <p class="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -406,7 +406,7 @@ const featuredPosts = [
               « {t.citation} »
             </blockquote>
             <footer class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center text-brand-600 font-bold text-sm" aria-hidden="true">
+              <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-brand-dark font-bold text-sm" aria-hidden="true">
                 {t.initiales}
               </div>
               <div>
@@ -433,7 +433,7 @@ const featuredPosts = [
     <div class="container-page">
       <div class="text-center mb-14">
         <span class="badge mb-4">Tarifs transparents</span>
-        <h2 id="offres-titre" class="text-brand-600 mb-4">
+        <h2 id="offres-titre" class="text-brand-dark mb-4">
           Trois formules, une seule ambition
         </h2>
         <p class="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -456,7 +456,7 @@ const featuredPosts = [
       </p>
 
       <div class="text-center mt-8">
-        <a href="/offres" class="text-sm font-medium text-brand-600 hover:text-brand-500 transition-colors">
+        <a href="/offres" class="text-sm font-medium text-brand-dark hover:text-brand-medium transition-colors">
           Comparer les formules en détail →
         </a>
       </div>
@@ -481,11 +481,11 @@ const featuredPosts = [
       <div class="flex items-end justify-between mb-10">
         <div>
           <span class="badge mb-3">Ressources gratuites</span>
-          <h2 id="blog-titre" class="text-brand-600">
+          <h2 id="blog-titre" class="text-brand-dark">
             Comprendre l'AEO/GEO
           </h2>
         </div>
-        <a href="/blog" class="hidden sm:block text-sm font-medium text-brand-600 hover:text-brand-500">
+        <a href="/blog" class="hidden sm:block text-sm font-medium text-brand-dark hover:text-brand-medium">
           Tous les articles →
         </a>
       </div>

@@ -96,26 +96,26 @@ const comparatif = [
 >
 
   <!-- Hero -->
-  <section class="bg-brand-600 text-white py-16">
+  <section class="bg-brand-dark text-white py-16">
     <div class="container-page">
-      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-slate-300 mb-8">
         <ol class="flex items-center gap-2 flex-wrap" role="list">
           <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
-          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-hidden="true" class="text-slate-400">/</li>
           <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
-          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-hidden="true" class="text-slate-400">/</li>
           <li aria-current="page" class="text-white font-medium">Article</li>
         </ol>
       </nav>
       <div class="max-w-3xl">
         <div class="flex items-center gap-3 mb-4">
           <span class="badge-dark">Éducation</span>
-          <span class="text-brand-300 text-sm">11 min de lecture</span>
+          <span class="text-slate-300 text-sm">11 min de lecture</span>
         </div>
         <h1 class="text-white mb-4">
           AEO vs GEO vs SEO : le guide définitif pour les professionnels de santé
         </h1>
-        <div class="flex items-center gap-4 text-sm text-brand-200">
+        <div class="flex items-center gap-4 text-sm text-slate-300">
           <span>Par <a href="/a-propos" class="underline hover:text-white">Hugo</a>, fondateur d'Astivio</span>
           <span>·</span>
           <time datetime={datePubl}>22 février 2025</time>
@@ -152,7 +152,7 @@ const comparatif = [
 
         <!-- SEO -->
         <section aria-labelledby="seo-titre">
-          <h2 id="seo-titre" class="text-brand-600 mb-4">Le SEO : la fondation qui reste indispensable</h2>
+          <h2 id="seo-titre" class="text-brand-dark mb-4">Le SEO : la fondation qui reste indispensable</h2>
           <p class="text-slate-700 leading-relaxed mb-4">
             Le SEO (Search Engine Optimization) désigne l'ensemble des techniques permettant
             d'améliorer la position d'un site web dans les résultats organiques des moteurs
@@ -194,7 +194,7 @@ const comparatif = [
 
         <!-- AEO -->
         <section class="mt-10" aria-labelledby="aeo-titre">
-          <h2 id="aeo-titre" class="text-brand-600 mb-4">L'AEO : optimiser pour être la réponse</h2>
+          <h2 id="aeo-titre" class="text-brand-dark mb-4">L'AEO : optimiser pour être la réponse</h2>
           <p class="text-slate-700 leading-relaxed mb-4">
             L'AEO (Answer Engine Optimization) désigne les techniques qui permettent à un
             contenu d'être présenté directement comme réponse par un moteur — sans que
@@ -231,7 +231,7 @@ const comparatif = [
 
         <!-- GEO -->
         <section class="mt-10" aria-labelledby="geo-titre">
-          <h2 id="geo-titre" class="text-brand-600 mb-4">Le GEO : optimiser pour être recommandé</h2>
+          <h2 id="geo-titre" class="text-brand-dark mb-4">Le GEO : optimiser pour être recommandé</h2>
           <p class="text-slate-700 leading-relaxed mb-4">
             Le GEO (Generative Engine Optimization) est le concept le plus récent et le
             plus spécifique. Il désigne l'optimisation pour les moteurs à IA générative :
@@ -254,8 +254,8 @@ const comparatif = [
               { label: 'Cohérence des données', desc: 'NAP identiques sur tous les profils (site, GBP, Doctolib, annuaires)' },
               { label: 'Volume et qualité des avis', desc: 'Avis récents, variés, avec réponses du praticien' },
             ].map((item) => (
-              <div class="bg-brand-50 rounded-xl p-4">
-                <p class="text-sm font-semibold text-brand-600 mb-1">{item.label}</p>
+              <div class="bg-slate-50 rounded-xl p-4">
+                <p class="text-sm font-semibold text-brand-dark mb-1">{item.label}</p>
                 <p class="text-xs text-slate-600">{item.desc}</p>
               </div>
             ))}
@@ -264,10 +264,10 @@ const comparatif = [
 
         <!-- Tableau comparatif -->
         <section class="mt-10" aria-labelledby="comparatif-titre">
-          <h2 id="comparatif-titre" class="text-brand-600 mb-6">Tableau comparatif AEO / GEO / SEO</h2>
+          <h2 id="comparatif-titre" class="text-brand-dark mb-6">Tableau comparatif AEO / GEO / SEO</h2>
           <div class="overflow-x-auto rounded-xl border border-slate-200">
             <table class="w-full text-sm">
-              <thead class="bg-brand-600 text-white">
+              <thead class="bg-brand-dark text-white">
                 <tr>
                   <th class="text-left px-4 py-3 font-semibold">Critère</th>
                   <th class="text-left px-4 py-3 font-semibold">SEO</th>
@@ -291,7 +291,7 @@ const comparatif = [
 
         <!-- Synthèse -->
         <section class="mt-10" aria-labelledby="synthese-titre">
-          <h2 id="synthese-titre" class="text-brand-600 mb-4">
+          <h2 id="synthese-titre" class="text-brand-dark mb-4">
             Comment articuler les trois pour un cabinet d'ostéopathie
           </h2>
           <p class="text-slate-700 leading-relaxed mb-4">
@@ -308,7 +308,7 @@ const comparatif = [
               <li class="flex gap-4">
                 <div class="w-2 flex-shrink-0 bg-emerald-500 rounded-full mt-1"></div>
                 <div>
-                  <p class="font-semibold text-brand-600 mb-1">{item.step}</p>
+                  <p class="font-semibold text-brand-dark mb-1">{item.step}</p>
                   <p class="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
                 </div>
               </li>
@@ -318,7 +318,7 @@ const comparatif = [
 
         <!-- Conclusion -->
         <section class="mt-10 pt-8 border-t border-slate-100">
-          <h2 class="text-brand-600 mb-4">Conclusion</h2>
+          <h2 class="text-brand-dark mb-4">Conclusion</h2>
           <p class="text-slate-700 leading-relaxed mb-4">
             AEO, GEO, SEO : trois acronymes pour une réalité simple. La façon dont vos
             futurs patients vous trouvent est en train de changer fondamentalement.

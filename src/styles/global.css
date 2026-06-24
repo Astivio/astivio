@@ -9,11 +9,11 @@
 
 @layer base {
   :root {
-    --color-brand:       #1E3A5F;
-    --color-brand-light: #2B5299;
-    --color-accent:      #10B981;
-    --color-text:        #0F172A;
-    --color-muted:       #64748B;
+    --color-brand-dark:   #0e1d2d;
+    --color-brand-medium: #1A3248;
+    --color-brand-accent: #10B981;
+    --color-text:         #0F172A;
+    --color-muted:        #64748B;
     scroll-behavior: smooth;
   }
 
@@ -54,15 +54,15 @@
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
            border-2 border-white text-white font-semibold px-6 py-3 rounded-lg
-           hover:bg-white hover:text-brand-600
+           hover:bg-white hover:text-brand-dark
            transition-all duration-200
            focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2;
   }
 
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2
-           border-2 border-brand-600 text-brand-600 font-semibold px-6 py-3 rounded-lg
-           hover:bg-brand-600 hover:text-white
+           border-2 border-brand-dark text-brand-dark font-semibold px-6 py-3 rounded-lg
+           hover:bg-brand-dark hover:text-white
            transition-all duration-200;
   }
 
@@ -92,7 +92,7 @@
 
   /* TL;DR — résumé extrait par les IA (signal GEO fort) */
   .tldr {
-    @apply bg-brand-50 border-l-4 border-emerald-500
+    @apply bg-slate-50 border-l-4 border-emerald-500
            rounded-r-xl p-4 md:p-6 mb-8;
   }
 
@@ -102,7 +102,7 @@
   }
 
   .stat-number {
-    @apply text-4xl md:text-5xl font-bold text-brand-600 block;
+    @apply text-4xl md:text-5xl font-bold text-brand-dark block;
   }
 
   .stat-label {

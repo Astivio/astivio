@@ -85,19 +85,19 @@ const cas = [
 >
 
   <!-- Hero -->
-  <section class="bg-brand-600 text-white py-20">
+  <section class="bg-brand-dark text-white py-20">
     <div class="container-page">
-      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-slate-300 mb-8">
         <ol class="flex items-center gap-2" role="list">
           <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
-          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-hidden="true" class="text-slate-400">/</li>
           <li aria-current="page" class="text-white font-medium">Études de cas</li>
         </ol>
       </nav>
       <div class="max-w-3xl">
         <span class="badge-dark mb-4">Preuves & Résultats</span>
         <h1 class="text-white mb-4">Études de cas</h1>
-        <p class="text-xl text-brand-100 leading-relaxed">
+        <p class="text-xl text-slate-200 leading-relaxed">
           Des résultats concrets, mesurés avec une méthodologie rigoureuse.
           Avant/après en captures de réponses IA — pas en promesses vagues.
         </p>
@@ -123,17 +123,17 @@ const cas = [
         <article id={c.id} class="card p-0 overflow-hidden" aria-labelledby={`cas-titre-${index}`}>
 
           <!-- En-tête -->
-          <div class="bg-brand-600 text-white px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="bg-brand-dark text-white px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <span class="badge-dark mb-2">Étude de cas #{index + 1}</span>
               <h2 id={`cas-titre-${index}`} class="text-xl font-bold text-white">
                 {c.nom} — {c.ville}
               </h2>
-              <p class="text-brand-200 text-sm">{c.annees} · Formule : {c.formule}</p>
+              <p class="text-slate-300 text-sm">{c.annees} · Formule : {c.formule}</p>
             </div>
             <div class="text-right">
               <span class="text-emerald-400 font-bold text-lg">{c.duree}</span>
-              <p class="text-brand-200 text-xs">durée d'intervention</p>
+              <p class="text-slate-300 text-xs">durée d'intervention</p>
             </div>
           </div>
 
@@ -141,7 +141,7 @@ const cas = [
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <!-- Contexte -->
               <div>
-                <h3 class="text-brand-600 text-base mb-3 flex items-center gap-2">
+                <h3 class="text-brand-dark text-base mb-3 flex items-center gap-2">
                   <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500">C</span>
                   Contexte
                 </h3>
@@ -150,7 +150,7 @@ const cas = [
 
               <!-- Problème -->
               <div>
-                <h3 class="text-brand-600 text-base mb-3 flex items-center gap-2">
+                <h3 class="text-brand-dark text-base mb-3 flex items-center gap-2">
                   <span class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-xs font-bold text-red-500">P</span>
                   Problème identifié
                 </h3>
@@ -160,8 +160,8 @@ const cas = [
 
             <!-- Interventions -->
             <div class="mb-8">
-              <h3 class="text-brand-600 text-base mb-4 flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center text-xs font-bold text-brand-600">I</span>
+              <h3 class="text-brand-dark text-base mb-4 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-brand-dark">I</span>
                 Interventions réalisées
               </h3>
               <ul class="space-y-2" role="list">
@@ -178,7 +178,7 @@ const cas = [
 
             <!-- Résultats -->
             <div>
-              <h3 class="text-brand-600 text-base mb-4 flex items-center gap-2">
+              <h3 class="text-brand-dark text-base mb-4 flex items-center gap-2">
                 <span class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-xs font-bold text-emerald-600">R</span>
                 Résultats mesurés
               </h3>

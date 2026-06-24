@@ -44,19 +44,19 @@ const valeurs = [
 >
 
   <!-- Hero -->
-  <section class="bg-brand-600 text-white py-20">
+  <section class="bg-brand-dark text-white py-20">
     <div class="container-page">
-      <nav aria-label="Fil d'Ariane" class="text-sm text-brand-200 mb-8">
+      <nav aria-label="Fil d'Ariane" class="text-sm text-slate-300 mb-8">
         <ol class="flex items-center gap-2" role="list">
           <li><a href="/" class="hover:text-white transition-colors">Accueil</a></li>
-          <li aria-hidden="true" class="text-brand-400">/</li>
+          <li aria-hidden="true" class="text-slate-400">/</li>
           <li aria-current="page" class="text-white font-medium">À propos</li>
         </ol>
       </nav>
       <div class="max-w-3xl">
         <span class="badge-dark mb-4">L'agence</span>
         <h1 class="text-white mb-4">À propos d'Astivio</h1>
-        <p class="text-xl text-brand-100 leading-relaxed">
+        <p class="text-xl text-slate-200 leading-relaxed">
           Pourquoi nous existons, qui nous sommes, et ce en quoi nous croyons.
         </p>
       </div>
@@ -70,12 +70,12 @@ const valeurs = [
 
         <!-- Photo placeholder -->
         <div class="md:col-span-1">
-          <div class="aspect-square bg-brand-100 rounded-2xl flex items-center justify-center" aria-label="Photo du fondateur">
+          <div class="aspect-square bg-slate-100 rounded-2xl flex items-center justify-center" aria-label="Photo du fondateur">
             <div class="text-center">
-              <div class="w-24 h-24 bg-brand-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span class="text-4xl text-brand-600 font-bold" aria-hidden="true">FN</span>
+              <div class="w-24 h-24 bg-slate-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <span class="text-4xl text-brand-dark font-bold" aria-hidden="true">FN</span>
               </div>
-              <p class="text-brand-400 text-sm">[Photo à ajouter]</p>
+              <p class="text-slate-400 text-sm">[Photo à ajouter]</p>
             </div>
           </div>
           <!-- Crédentials — signal E-E-A-T -->
@@ -109,7 +109,7 @@ const valeurs = [
 
         <!-- Bio — signal E-E-A-T : auteur identifié avec crédentials -->
         <div class="md:col-span-2">
-          <h2 id="fondateur-titre" class="text-brand-600 mb-2">Hugo</h2>
+          <h2 id="fondateur-titre" class="text-brand-dark mb-2">Hugo</h2>
           <p class="text-emerald-600 font-medium mb-6">Fondateur d'Astivio</p>
 
           <div class="space-y-4 text-slate-600 leading-relaxed">
@@ -148,7 +148,7 @@ const valeurs = [
     <div class="container-page">
       <div class="max-w-3xl mx-auto text-center">
         <span class="badge mb-4">Notre vision</span>
-        <h2 id="vision-titre" class="text-brand-600 mb-6">
+        <h2 id="vision-titre" class="text-brand-dark mb-6">
           Pourquoi Astivio existe
         </h2>
         <p class="text-lg text-slate-600 leading-relaxed mb-6">
@@ -174,14 +174,14 @@ const valeurs = [
   <section class="section bg-white" aria-labelledby="valeurs-titre">
     <div class="container-page">
       <div class="text-center mb-12">
-        <h2 id="valeurs-titre" class="text-brand-600 mb-4">Nos valeurs</h2>
+        <h2 id="valeurs-titre" class="text-brand-dark mb-4">Nos valeurs</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
         {valeurs.map((v) => (
           <article class="flex gap-4">
             <span class="text-2xl flex-shrink-0" aria-hidden="true">{v.icon}</span>
             <div>
-              <h3 class="text-brand-600 mb-2">{v.title}</h3>
+              <h3 class="text-brand-dark mb-2">{v.title}</h3>
               <p class="text-sm text-slate-600 leading-relaxed">{v.desc}</p>
             </div>
           </article>
