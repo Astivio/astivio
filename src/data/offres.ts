@@ -4,10 +4,11 @@ export interface Offre {
   id:          string;
   name:        string;
   tagline:     string;
+  note?:       string;
   price:       string;
   priceDetail: string;
   period:      string;
-  highlighted: boolean;         // Formule mise en avant
+  highlighted: boolean;
   features:    string[];
   notIncluded: string[];
   cta:         string;
@@ -19,7 +20,7 @@ export const offres: Offre[] = [
     id:          'audit',
     name:        'Audit AEO/GEO',
     tagline:     'Diagnostic & plan d\'action',
-    price:       '490',
+    price:       '390',
     priceDetail: '',
     period:      'ponctuel',
     highlighted: false,
@@ -44,8 +45,8 @@ export const offres: Offre[] = [
     id:          'optimisation',
     name:        'Optimisation complète',
     tagline:     'La formule qui change la donne',
-    price:       '1 290',
-    priceDetail: '+ 89 €/mois',
+    price:       '790',
+    priceDetail: '+ 149 €/mois',
     period:      'setup + mensuel',
     highlighted: true,
     features: [
@@ -59,11 +60,9 @@ export const offres: Offre[] = [
       'Rapport de visibilité mensuel',
       'Ajustements continus inclus',
       'Support email prioritaire',
+      'Accès prioritaire à la création de votre site web si vous n\'en avez pas encore',
     ],
-    notIncluded: [
-      'Création de site web (si vous n\'en avez pas)',
-      'Gestion des avis Google (offre distincte)',
-    ],
+    notIncluded: [],
     cta:     'Choisir cette formule',
     ctaHref: '/contact',
   },
@@ -71,7 +70,8 @@ export const offres: Offre[] = [
     id:          'pilotage',
     name:        'Pilotage continu',
     tagline:     'Dominant sur tous les moteurs IA',
-    price:       '2 490',
+    note:        'Accessible après l\'Optimisation complète',
+    price:       '349',
     priceDetail: '',
     period:      'par mois',
     highlighted: false,

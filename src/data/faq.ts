@@ -57,7 +57,7 @@ export const faqTarifs: FAQItem[] = [
   {
     question: "Par quelle formule commencer pour un cabinet d'ostéopathie qui démarre ?",
     answer:
-      "L'Audit AEO/GEO (490 €) est le point d'entrée recommandé. Il permet d'obtenir un diagnostic précis de votre visibilité actuelle sur les moteurs IA et un plan d'action priorisé, sans engagement. La majorité de nos clients passent ensuite à la formule Optimisation complète pour implémenter le plan.",
+      "L'Audit AEO/GEO (390 €) est le point d'entrée recommandé. Il permet d'obtenir un diagnostic précis de votre visibilité actuelle sur les moteurs IA et un plan d'action priorisé, sans engagement. La majorité de nos clients passent ensuite à la formule Optimisation complète (790 € + 149 €/mois) pour implémenter le plan.",
   },
   {
     question: "La formule Optimisation complète inclut-elle la création de contenu ?",

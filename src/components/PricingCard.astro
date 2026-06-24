@@ -35,6 +35,14 @@ const { offre } = Astro.props;
     <p class:list={['text-sm', offre.highlighted ? 'text-emerald-200' : 'text-slate-500']}>
       {offre.tagline}
     </p>
+    {offre.note && (
+      <span class:list={[
+        'inline-block mt-2 text-xs px-2 py-0.5 rounded-full font-medium',
+        offre.highlighted ? 'bg-white/10 text-slate-300' : 'bg-slate-100 text-slate-500',
+      ]}>
+        {offre.note}
+      </span>
+    )}
   </div>
 
   <!-- Prix -->
