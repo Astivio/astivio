@@ -11,6 +11,7 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { organizationSchema } from '../data/schema';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title:         string;
@@ -105,5 +106,6 @@ const schemas: object[] = [
   </main>
 
   <Footer />
+  <Analytics />
 </body>
 </html>
